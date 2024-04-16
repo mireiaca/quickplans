@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { CommunityComponent } from './components/community/community.component';
-import { IndexComponent } from './components/index/index.component';
-import { QuickplanComponent } from './components/quickplan/quickplan.component';
-import { AddQuickplanComponent } from './components/add-quickplan/add-quickplan.component';
-import { ChatComponent } from './components/chat/chat.component';
-import { UserHelpComponent } from './components/user-help/user-help.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { CommunityComponent } from './pages/community/community.component';
+import { IndexComponent } from './pages/index/index.component';
+import { QuickplanComponent } from './pages/quickplan/quickplan.component';
+import { AddQuickplanComponent } from './pages/add-quickplan/add-quickplan.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { UserHelpComponent } from './pages/user-help/user-help.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CardsCarouselComponent } from './components/cards-carousel/cards-carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { UserHelpComponent } from './components/user-help/user-help.component';
     QuickplanComponent,
     AddQuickplanComponent,
     ChatComponent,
-    UserHelpComponent
+    UserHelpComponent,
+    FooterComponent,
+    HeaderComponent,
+    CardsCarouselComponent
   ],
   imports: [
     BrowserModule,
