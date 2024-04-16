@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddQuickplanComponent } from './add-quickplan.component';
+import { HeaderComponent } from './header.component';
 
-describe('AddQuickplanComponent', () => {
-  let component: AddQuickplanComponent;
-  let fixture: ComponentFixture<AddQuickplanComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddQuickplanComponent]
+      declarations: [HeaderComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AddQuickplanComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
