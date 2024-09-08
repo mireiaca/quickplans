@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: rgba(17, 124, 111, 0.15);
+  padding: 60px 0;
+  margin-top: 20px;
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer-col:nth-child(1) {
+  margin: auto;
+}
+
+.footer-col {
+  width: 33%;
+  padding: 0 15px;
+  display: flex; /* Add flexbox */
+  flex-direction: column; /* Ensure vertical layout */
+  align-items: normal; /* Center horizontally */
+
+  h4 {
+    font-size: 18px;
+    color: #117C6F;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: #117C6F;
+      width: 50px;
+      height: 2px;
+    }
+  }
+
+  ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  ul li a {
+    color: #117C6F;
+    display: block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #117C6F;
+      padding-left: 7px;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  .social-links a {
+    text-decoration: none;
+    color: #FFF;
+    background-color: #117C6F;
+    display: flex; /* Change from inline-block to flex */
+    justify-content: center; /* Center icon horizontally */
+    align-items: center; /* Center icon vertically */
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 10px 10px 0;
+    transition: all 0.5s ease;
+
+    &:hover {
+      color: #117C6F;
+      background-color: #FFF;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}

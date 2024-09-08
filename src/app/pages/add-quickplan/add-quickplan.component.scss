@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.quick-plan-form {
+    margin: auto;
+    margin-top: 30px;
+    background-color: #e6f2ee;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 40vw;
+
+    @media (max-width: 768px) {
+        width: 90vw;
+    }
+
+    .icon {
+        margin-bottom: 10px;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .title {
+        margin: 10px 0;
+        color: #006f63;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+    }
+
+    .form-group {
+        margin: 10px 0;
+        text-align: left;
+
+
+        div {
+            display: flex;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+
+        input[type="date"] {
+            padding: 9px;
+        }
+    }
+
+    .quick-plan-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #008060;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #006f53;
+        }
+    }
+}

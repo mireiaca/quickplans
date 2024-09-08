@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.links {
+    text-decoration: none;
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 5px 5px 15px 5px;
+    transition: all 0.5s ease;
+    background-color: #117C6F;
+    color: #fff;
+    
+    &:hover {
+        color: #117C6F;
+        background-color: #ffffff;
+    }
+
+    a {
+        margin-block: auto;
+    }
+}
+
+.profile-container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.header {
+    background-color: rgba(17, 124, 111, 0.6);
+    display: flex;
+    align-items: center;
+    padding: 100px;
+    margin-bottom: 40px;
+    padding-inline: 18vw;
+    position: relative; /* Asegura que los hijos con posición absoluta se alineen a este contenedor */
+}
+
+.header > div {
+    position: absolute;
+    top: 80px;
+    display: flex; /* Cambia display para que el contenido interno se muestre correctamente */
+    align-items: center;
+}
+
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5vw;
+    box-shadow: 0 4px 8px #117C6F;
+}
+
+.profile-name {
+    font-size: 24px;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.info-card {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    hr {
+        color: #117C6F;
+        width: 80%;
+    }
+}
+
+.info-title {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-block: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-block: 10px;
+    width: 100%;
+
+    .col-2 {
+        flex: 0 0 20%;
+        max-width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .col-10 {
+        flex: 0 0 80%;
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-icon {
+        font-size: 20px;
+        color: #117C6F;
+    }
+}
+
+
+.info-icon {
+    color: #117C6F;
+    margin-right: 10px;
+}
+
+.calendar {
+    padding: 10px;
+}
+
+.calendar-card {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 20px;
+    padding-inline: 10px;
+}
+
+.calendar-header h4 {
+    margin: 0;
+    color: #117C6F;
+}
+
+.settings-button {
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-block: auto;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+.calendar th {
+    background-color: #a1d5d0;
+    color: white;
+}
+
+.calendar td {
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 80px;
+        padding-inline: 12vw;
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        position: relative; /* Asegura que los hijos con posición absoluta se alineen a este contenedor */
+    }
+    
+    .header > div {
+        position: absolute;
+        top: 80px;
+        display: flex; /* Cambia display para que el contenido interno se muestre correctamente */
+        align-items: center;
+    }
+
+    .info-card,
+    .calendar-card {
+        padding: 20px;
+        width: 100%;
+        margin-bottom: 20px; /* Separación entre tarjetas en móvil */
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        padding-block: 20px;
+    }
+}
