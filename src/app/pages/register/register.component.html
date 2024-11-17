@@ -1,31 +1,35 @@
 <div class="login-container">
     <div class="image-section">
-        <img src="./../../../assets/images/login.jpg" alt="Calendario" class="calendar-image">
+      <img src="./../../../assets/images/login.jpg" alt="Calendario" class="calendar-image">
     </div>
     <div class="form-section">
-        <form>
-            <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Nombre completo" required>
-            </div>
-            <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Contraseña" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Repita la contraseña" required>
-            </div>
-            <div class="social-login">
-                <p> - O - </p>
-                <div class="social-links">
-					<a href="#"><i class="fab fa-facebook-f"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-            </div>
-            <button type="submit" class="submit-button">Registrarse</button>
-            <a class="enlaces" href="">Si ya estás registrado,&nbsp;<strong>inicia sesión</strong></a>
-        </form>
+      <form (ngSubmit)="onRegister()">
+        <div class="input-group">
+          <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Nombre de usuario" required>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Contraseña" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Repita la contraseña" required>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+        <div class="social-login">
+          <p> - O - </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+  
+        <button type="submit" class="submit-button">Registrarse</button>
+        <a class="enlaces" href="/login">Si ya estás registrado,&nbsp;<strong>inicia sesión</strong></a>
+      </form>
     </div>
-</div>
+  </div>
+  

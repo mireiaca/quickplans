@@ -1,1 +1,26 @@
-<p>index works!</p>
+<div class="homepage">
+    <h2>¿Qué plan se te antoja hoy?</h2>
+    <div class="plans">
+      <div *ngFor="let plan of plans" class="card">
+        <img [src]="plan.image" alt="Plan image" />
+        <p>{{ plan.name }}</p>
+      </div>
+    </div>
+  
+    <h2>Mira cómo de ocupados están tus amigos...</h2>
+    <div class="friends">
+      <div *ngFor="let friend of friends" class="card">
+        <img [src]="friend.image" alt="Friend image" />
+        <p>{{ friend.name }}</p>
+      </div>
+    </div>
+  
+    <h2>Aún no has aceptado</h2>
+    <div class="pending">
+      <div *ngFor="let pending of pendingPlans" class="card">
+        <img [src]="pending.image" alt="Pending image" />
+        <p>{{ pending.name }}</p>
+      </div>
+    </div>
+  </div>
+  

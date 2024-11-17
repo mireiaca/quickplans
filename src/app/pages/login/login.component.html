@@ -1,26 +1,65 @@
 <div class="login-container">
-    <div class="image-section">
-        <img src="./../../../assets/images/login.jpg" alt="Calendario" class="calendar-image">
-    </div>
-    <div class="form-section">
-        <form>
-            <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                <a class="enlaces" href="">¿Has olvidado tu contraseña?&nbsp;<strong>Recupérala</strong></a>
-            </div>
-            <div class="social-login">
-                <p> - O - </p>
-                <div class="social-links">
-					<a href="#"><i class="fab fa-facebook-f"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-            </div>
-            <button type="submit" class="submit-button">Iniciar sesión</button>
-            <a class="enlaces" href="">Si no estás registrado,&nbsp;<strong>regístrate</strong></a>
-        </form>
-    </div>
+  <div class="image-section">
+    <img src="./../../../assets/images/login.jpg" alt="Calendario" class="calendar-image">
+  </div>
+  <div class="form-section">
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Campo de usuario -->
+      <div class="input-group">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Usuario"
+          [(ngModel)]="username"
+          required
+          #usernameField="ngModel" 
+        />
+        <!-- Mensaje de error cuando el campo está vacío -->
+        <div *ngIf="usernameField.invalid && usernameField.touched" class="error-message">
+          El nombre de usuario es requerido.
+        </div>
+      </div>
+
+      <!-- Campo de contraseña -->
+      <div class="input-group">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+          required
+          #passwordField="ngModel"
+        />
+        <!-- Mensaje de error cuando el campo está vacío -->
+        <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
+          La contraseña es requerida.
+        </div>
+        <a class="enlaces" href="/recover-password">
+          ¿Has olvidado tu contraseña?&nbsp;<strong>Recupérala</strong>
+        </a>
+      </div>
+
+      <!-- Mostrar error de login -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <div class="social-login">
+        <p> - O - </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="loginForm.invalid">Iniciar sesión</button>
+
+      <a class="enlaces" href="/register">
+        Si no estás registrado,&nbsp;<strong>regístrate</strong>
+      </a>
+    </form>
+  </div>
 </div>

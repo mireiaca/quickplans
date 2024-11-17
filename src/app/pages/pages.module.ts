@@ -10,24 +10,10 @@ import { UserHelpComponent } from './user-help/user-help.component';
 import { RegisterComponent } from './register/register.component';
 import { RecoverComponent } from './recover-password/recover.component';
 import { GroupComponent } from './group/group.component';
-
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-   AddQuickplanComponent,
-   ChatComponent,
-   CommunityComponent,
-   IndexComponent,
-   LoginComponent,
-   ProfileComponent,
-   UserHelpComponent,
-   RegisterComponent,
-   RecoverComponent,
-   GroupComponent,
-  ], 
-  exports: [
-    GroupComponent,
     AddQuickplanComponent,
     ChatComponent,
     CommunityComponent,
@@ -36,10 +22,24 @@ import { GroupComponent } from './group/group.component';
     ProfileComponent,
     UserHelpComponent,
     RegisterComponent,
-    RecoverComponent
+    RecoverComponent,
+    GroupComponent
+  ],
+  exports: [
+    AddQuickplanComponent,
+    ChatComponent,
+    CommunityComponent,
+    IndexComponent,
+    LoginComponent,
+    ProfileComponent,
+    UserHelpComponent,
+    RegisterComponent,
+    RecoverComponent,
+    GroupComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
   ]
 })
 export class PagesModule { }
