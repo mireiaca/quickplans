@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service'; // Importa el servicio
+import { AuthService } from '../../services/auth/auth.service'; // Importa el servicio
 import { Router } from '@angular/router'; // Para redirigir después de la recuperación
 
 @Component({
