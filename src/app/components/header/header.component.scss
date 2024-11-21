@@ -34,6 +34,11 @@ header {
             li {
                 position: relative;
 
+                /* &.img.logo {
+                    height: 50px;
+                    width: auto;
+                } */
+
                 a {
                     display: block;
                     color: #117C6F;
@@ -83,7 +88,7 @@ header {
                     }
                 }
 
-                &:hover {
+                &:hover:not(.logo) {
                     background-color: #eee;
                 }
 

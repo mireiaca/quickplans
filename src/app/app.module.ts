@@ -9,12 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ErrorModalComponent } from './error-modal/error-modal.component'; 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ErrorModalComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

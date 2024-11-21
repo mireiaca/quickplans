@@ -29,7 +29,6 @@ export class AuthService {
 
   // Método para registrar un nuevo usuario
   register(username: string, email: string, password: string): Observable<any> {
-    // Los datos se deben enviar en el formato específico que espera el backend.
     const body = {
       "_links": {
         "type": {
@@ -47,19 +46,17 @@ export class AuthService {
       ]
     };
 
-    // Los encabezados para la solicitud
     const headers = new HttpHeaders({
       'Content-Type': 'application/hal+json'
     });
 
-    // Realizamos la solicitud POST al endpoint de registro
     return this.http.post(this.registerEndpoint, body, { headers });
   }
 
   // Método para recuperar la contraseña
   recoverPassword(email: string): Observable<any> {
     const body = {
-      name: email // Se espera que 'name' sea el correo del usuario según el formato del endpoint
+      name: email 
     };
 
     const headers = new HttpHeaders({
@@ -67,5 +64,22 @@ export class AuthService {
     });
 
     return this.http.post(this.recoverPasswordEndpoint, body, { headers });
+  }
+
+  // Método para cerrar sesión
+  logout(): Observable<any> {
+    const token = localStorage.getItem('tokenlogout');
+    const logoutEndpoint = `${environment.apiBaseUrl}/user/logout?_format=json&token=${token}`;
+
+    // Elimina los tokens en el localStorage
+    localStorage.removeItem('username');
+    localStorage.removeItem('csrf_token');
+    localStorage.removeItem('tokenlogout');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(logoutEndpoint, {}, { headers });
   }
 }

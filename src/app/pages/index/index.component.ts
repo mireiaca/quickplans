@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     // Simula las peticiones a tus endpoints
-    this.http.get<any[]>('https://api.example.com/plans').subscribe((data) => {
+    /* this.http.get<any[]>('https://api.example.com/plans').subscribe((data) => {
       this.plans = data;
     });
 
@@ -25,6 +25,6 @@ export class IndexComponent implements OnInit {
 
     this.http.get<any[]>('https://api.example.com/pending-plans').subscribe((data) => {
       this.pendingPlans = data;
-    });
+    }); */
   }
 }

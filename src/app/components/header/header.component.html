@@ -1,12 +1,17 @@
 <header>
     <nav>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <!-- <div  for="menu-toggle" class="menu-icon">
+            <img src="../../../assets/images/QuickPlan.png" alt="Logo">
+        </div> -->
         <label for="menu-toggle" class="menu-icon">
             <div class="hamburger"></div>
             <div class="hamburger"></div>
             <div class="hamburger"></div>
         </label>
         <ul class="navigation-menu">
+            <!-- <li class="logo"><img src="../../../assets/images/QuickPlan.png" alt="Logo"></li> -->
+            <li><a href="#">Inicio</a></li>
             <li><a href="#">Chats</a></li>
             <li><a href="#">Comunidad</a></li>
             <li class="extends"><a href="#">QuickPlan</a>
@@ -14,6 +19,21 @@
                     <li><a href="#">Anónimo</a></li>
                     <li><a href="#">Amistoso</a></li>
                     <li><a href="#">Grupal</a></li>
+                </ul>
+            </li>            
+            <li *ngIf="!csrfToken"><a href="/login">Iniciar sesión</a></li>
+            <li *ngIf="csrfToken" class="extends"><a href="/profile">Perfil</a>
+                <ul>
+                    <li><a href="/profile">Mi perfil</a></li>
+                    <li><a href="#" (click)="onLogout()">Cerrar sesión</a></li>
+                </ul>
+            </li>
+            <li *ngIf="csrfToken" class="extends"><a href="#">Notificaciones</a>
+                <ul>
+                    <!-- <li *ngFor="let notification of notifications"><a href="#">{{notification}}</a></li> -->
+                    <li><a href="#">Notificacion 1  </a></li>
+                    <li><a href="#">Notificacion 2  </a></li>
+                    <li><a href="#">Notificacion 3  </a></li>
                 </ul>
             </li>
         </ul>

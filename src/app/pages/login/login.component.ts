@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username: string = '';
   password: string = '';
-  errorMessage: string = ''; // Mensaje de error
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -20,8 +20,10 @@ export class LoginComponent {
 
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        // Guardar la sesión o token en el localStorage o sessionStorage
-        localStorage.setItem('token', response.token);
+        // Guardar el token en el localStorage
+        localStorage.setItem('username', response.current_user.name);
+        localStorage.setItem('csrf_token', response.csrf_token);
+        localStorage.setItem('tokenlogout', response.logout_token);
         console.log('Login exitoso:', response);
 
         // Redirigir al perfil
@@ -29,7 +31,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.error('Error en el login:', err);
-        this.errorMessage = 'Usuario o contraseña incorrectos.'; // Mostrar error en el login
+        this.errorMessage = 'Usuario o contraseña incorrectos.';
       }
     });
   }
