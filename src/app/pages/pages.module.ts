@@ -11,6 +11,9 @@ import { RegisterComponent } from './register/register.component';
 import { RecoverComponent } from './recover-password/recover.component';
 import { GroupComponent } from './group/group.component';
 import { FormsModule } from '@angular/forms';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditGroupComponent } from './edit-group/edit-group.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     UserHelpComponent,
     RegisterComponent,
     RecoverComponent,
-    GroupComponent
+    GroupComponent,
+    EditProfileComponent,
+    UserProfileComponent,
+    EditGroupComponent
   ],
   exports: [
     AddQuickplanComponent,

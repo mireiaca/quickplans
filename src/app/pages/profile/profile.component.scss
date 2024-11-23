@@ -197,21 +197,26 @@ body {
         display: flex;
         align-items: center;
         margin-bottom: 40px;
-        position: relative; /* Asegura que los hijos con posición absoluta se alineen a este contenedor */
+        position: relative; 
     }
     
     .header > div {
         position: absolute;
         top: 80px;
-        display: flex; /* Cambia display para que el contenido interno se muestre correctamente */
+        display: flex; 
         align-items: center;
+    }
+
+    
+    .profile-name {
+        font-size: 20px;
     }
 
     .info-card,
     .calendar-card {
         padding: 20px;
         width: 100%;
-        margin-bottom: 20px; /* Separación entre tarjetas en móvil */
+        margin-bottom: 20px;
     }
 
     .content {
@@ -219,5 +224,35 @@ body {
         align-items: center;
         padding: 0px;
         padding-block: 20px;
+    }
+
+    .info-card,
+    .calendar-card {
+        padding: 10px;
+    }
+
+    .info-title {
+        font-size: 18px;
+    }
+
+    .info-item {
+        margin-block: 5px;
+    }
+
+    .info-icon {
+        font-size: 16px;
+    }
+
+    .calendar-header h4 {
+        font-size: 18px;
+    }
+
+    .settings-button {
+        font-size: 16px;
+    }
+
+    .links {
+        height: 25px;
+        width: 25px;
     }
 }
