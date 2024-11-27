@@ -31,6 +31,11 @@ body {
     }
 }
 
+.info-username {
+    margin-block: auto;
+    color:#117C6F;
+}
+
 .profile-container {
     width: 80%;
     margin: auto;
@@ -44,13 +49,13 @@ body {
     padding: 100px;
     margin-bottom: 40px;
     padding-inline: 18vw;
-    position: relative; /* Asegura que los hijos con posición absoluta se alineen a este contenedor */
+    position: relative; 
 }
 
 .header > div {
     position: absolute;
     top: 80px;
-    display: flex; /* Cambia display para que el contenido interno se muestre correctamente */
+    display: flex; 
     align-items: center;
 }
 

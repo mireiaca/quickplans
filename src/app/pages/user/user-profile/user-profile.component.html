@@ -1,0 +1,105 @@
+<div *ngIf="user">
+    <div class="header">
+      <div>
+        <img [src]="user.Imagen" alt="Perfil" class="profile-image">
+        <h1 class="profile-name">{{ user.Nombre || 'Nombre'}}</h1>
+      </div>
+    </div>
+    <div class="profile-container">
+      <div class="content">
+        <div class="info-card">
+          <h5 class="info-username">{{ user.Username || 'Nombre de usuario'}}</h5>
+          <hr>
+          <h5 class="info-title">{{ user.Biografia || 'Aún no me he presentado...'}}</h5>
+          <hr>
+          <div class="info-item row">
+            <div class="col-2">
+              <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            </div>
+            <div class="col-10">
+              <span>{{ user.Localidad || 'Mundo' }}</span>
+            </div>
+          </div>
+          <hr>
+          <div class="info-item row">
+            <div class="col-2">
+              <span class="info-icon"><i class="fa-solid fa-heart"></i></span>
+            </div>
+            <div class="col-10">
+              <span *ngFor="let interest of user.Intereses.split(',')">{{ interest }}</span>
+              <span *ngIf="!user.Intereses.split">{{ 'Aún no he hablado de mis intereses' }}</span>
+            </div>
+          </div>
+        </div>        
+        <div class="calendar-card">
+          <div class="calendar-header">
+            <h4>QuickPlanner</h4>
+            <a class="settings-button links" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+          </div>
+          <div class="calendar">
+            <!-- Calendario estático como ejemplo -->
+            <table>
+              <thead>
+                <tr>
+                  <th>L</th>
+                  <th>M</th>
+                  <th>X</th>
+                  <th>J</th>
+                  <th>V</th>
+                  <th>S</th>
+                  <th>D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>13</td>
+                  <td>14</td>
+                  <td>15</td>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>18</td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>20</td>
+                  <td>21</td>
+                  <td>22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>27</td>
+                  <td>28</td>
+                  <td>29</td>
+                  <td>30</td>
+                  <td>31</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

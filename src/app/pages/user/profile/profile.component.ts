@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService, User } from '../../services/user/user.service';
-import { environment } from '../../../environments/environment';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { UserService, User } from '../../../services/user/user.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit {
   user = {
     Imagen: '',
     Nombre: '',
+    Username: '',
     Biografia: '',
     Localidad: '',
     Intereses: ''
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
         this.user = {
           Imagen: `${environment.apiBaseUrl}` + userData.Imagen,
           Nombre: userData.Nombre,
+          Username: userData.field_nombre,
           Biografia: userData.Biografia,
           Localidad: userData.Localidad,
           Intereses: userData.Intereses

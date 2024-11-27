@@ -54,8 +54,13 @@ body {
     align-items: center;
 }
 
+.info-username {
+    color:#117C6F;
+    margin-block: auto;
+}
 
 .profile-image {
+    background-color: #fff;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -92,8 +97,9 @@ body {
 }
 
 .info-title {
-    color: #117C6F;
-    text-align: left;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
     margin-block: 20px;
 }
 
@@ -142,22 +148,11 @@ body {
 }
 
 .calendar-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-block: 20px;
     padding-inline: 10px;
-    display: flex;
-    
-    .calendar-name {
-        width: 50%;
-        display: flex;
-        justify-content: flex-start;
-    }
-    
-    .calendar-buttons {
-        width: 50%;
-        display: flex;
-        justify-content: flex-end;
-    }
 }
 
 .calendar-header h4 {
@@ -207,7 +202,7 @@ body {
         display: flex;
         align-items: center;
         margin-bottom: 40px;
-        position: relative;
+        position: relative; 
     }
     
     .header > div {
@@ -215,6 +210,11 @@ body {
         top: 80px;
         display: flex; 
         align-items: center;
+    }
+
+    
+    .profile-name {
+        font-size: 20px;
     }
 
     .info-card,
@@ -229,21 +229,6 @@ body {
         align-items: center;
         padding: 0px;
         padding-block: 20px;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .header {
-        padding: 60px;
-        padding-inline: 6vw;
-    }
-
-    .header > div {
-        top: 60px;
-    }
-
-    .profile-name {
-        font-size: 20px;
     }
 
     .info-card,
@@ -275,5 +260,4 @@ body {
         height: 25px;
         width: 25px;
     }
-    
 }

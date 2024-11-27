@@ -1,7 +1,7 @@
 <div class="header">
     <div>
-        <img src="../../../assets/images/login.jpg" alt="Perfil" class="profile-image">
-        <h1 class="profile-name">Grupo</h1>
+        <img [src]="group?.Imagen" alt="{{ group?.Titulo }}" class="profile-image">
+        <h1 class="profile-name">{{ group?.Titulo || 'Nombre'}}</h1>
     </div>
 </div>
 <div class="profile-container">
@@ -9,23 +9,15 @@
         <div class="info-card">
             <h5 class="info-title">Participantes</h5>
             <hr>
-            <div class="info-item row">
-                <div class="col-2">
-                    <span class="info-icon"><img/></span>
+            <div *ngFor="let user of members" class="info-item row" (click)="viewUserProfile(user.Username)">
+                <div class="col-3 user-photo">
+                    <img [src]="user.Imagen || 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" alt="{{ user.Nombre }}"/>
                 </div>
-                <div class="col-10">
-                    <span>Nombre</span>
+                <div class="col-9">
+                    <span>{{ user.Nombre }}</span>
                 </div>
-            </div>
-            <div class="info-item row">
-                <div class="col-2">
-                    <span class="info-icon"><img/></span>
-                </div>
-                <div class="col-10">
-                    <span>Nombre</span>
-                </div>
-            </div>
-        </div>        
+            </div> 
+        </div>       
         <div class="calendar-card">
             <div class="calendar-header">
                 <div class="calendar-name">

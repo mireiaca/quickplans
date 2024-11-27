@@ -1,1 +1,59 @@
-<p>community works!</p>
+<div class="container">
+    <!-- Menú lateral o superior -->
+    <aside class="sidebar">
+      <nav class="menu">
+        <ul>
+          <li class="active" [ngClass]="{'active': isActive('Amigos')}" 
+                (click)="setActiveMenu('Amigos')">
+                Amigos
+          </li>
+          <li 
+          [ngClass]="{'active': isActive('Grupos')}" 
+          (click)="setActiveMenu('Grupos')"
+        >
+          Grupos
+        </li>
+        <li 
+          [ngClass]="{'active': isActive('Agregar amigos')}" 
+          (click)="setActiveMenu('Agregar amigos')"
+        >
+          Agregar amigos
+        </li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <!-- Contenido principal -->
+    <main class="main-content">
+    <div *ngIf="isActive('Agregar amigos')" class="search-bar">
+        <input type="text" placeholder="Buscar usuarios..." />
+        <button>
+            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+        </button>
+      </div>
+  
+    
+    <div *ngIf="isActive('Grupos')" class="results">
+        <div *ngFor="let group of userGroups" class="friend-card" (click)="goToGroupPage(group.nid)">
+            <img class="profile-picture" [src]="environment.apiBaseUrl + group.Imagen" alt="{{ group.Titulo }}" />
+            <p>{{ group.Titulo }}</p>
+            <button class="add-button">></button>
+        </div>
+    </div>
+
+    <div *ngIf="isActive('Amigos')" class="results">
+      <div *ngFor="let friend of userFriends" class="friend-card" (click)="goToUserPage(friend.Username)">
+        <img
+          class="profile-picture"
+          [src]="friend.Imagen || 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'"
+          alt="{{ friend.Nombre }}"
+        />
+        <p>{{ friend.Nombre }}</p>
+        <button class="add-button">></button>
+      </div>
+    </div>
+    
+
+    </main>
+  </div>
+  

@@ -1,7 +1,8 @@
 header {
     width: 100%;
     background-color: white;
-    box-shadow: 0px 0px 20px #117C6F;
+    box-shadow: 0px 10px 20px -5px #117C6F;
+
 }
     nav {
         position: relative;
@@ -73,10 +74,15 @@ header {
                     z-index: 999;
 
                     li {
+                        background-color: rgba(245, 245, 245, 0.5);
                         position: unset;
 
                         a::after {
                             transform: rotate(0deg) !important;
+                        }
+
+                        &:hover {
+                            background-color: #eee;
                         }
 
                         ul {
