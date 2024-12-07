@@ -14,11 +14,18 @@
             <li><a href="/index">Inicio</a></li>
             <li><a href="/chats">Chats</a></li>
             <li><a href="/community">Comunidad</a></li>
-            <li class="extends"><a href="#">QuickPlan</a>
+            <li class="extends"><a href="#">QuickPlans</a>
                 <ul>
-                    <li><a href="#">Anónimo</a></li>
-                    <li><a href="#">Amistoso</a></li>
-                    <li><a href="#">Grupal</a></li>
+                    <li><a href="/quickplans/anonimos">Anónimos</a></li>
+                    <li><a href="/quickplans/mis-planes">Mis planes</a></li>
+                    <li><a href="/quickplans/piensatelo">Piénsatelo...</a></li>
+                    <li class="extends2 extends"><a href="#">Crear quickplan</a>
+                        <ul>
+                            <li><a href="/add-quickplan/anonimo">Anónimo</a></li>
+                            <li><a href="/add-quickplan/amistoso">Amistoso</a></li>
+                            <li><a href="/add-quickplan/grupal">Grupal</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>            
             <li *ngIf="!csrfToken"><a href="/login">Iniciar sesión</a></li>

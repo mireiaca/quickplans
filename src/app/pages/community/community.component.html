@@ -19,18 +19,31 @@
         >
           Agregar amigos
         </li>
+        <li 
+          [ngClass]="{'active': isActive('Crear grupo')}" 
+          (click)="setActiveMenu('Crear grupo')"
+        >
+          Crear grupo
+        </li>
         </ul>
       </nav>
     </aside>
   
     <!-- Contenido principal -->
     <main class="main-content">
-    <div *ngIf="isActive('Agregar amigos')" class="search-bar">
-        <input type="text" placeholder="Buscar usuarios..." />
-        <button>
+    <div *ngIf="isActive('Agregar amigos')" class="search-bar ">
+        <input type="text" id="search" placeholder="Buscar usuarios..." />
+        <button (click)="filterUsers()">
             <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
         </button>
-      </div>
+    </div>
+    <div *ngIf="isActive('Agregar amigos')" class="results">
+        <div *ngFor="let user of allUsers" class="friend-card">
+          <img class="profile-picture" [src]="environment.apiBaseUrl + user.Imagen" alt="{{ user.Nombre }}" />
+          <p>{{ user.Nombre }}</p>
+          <button class="add-button" (click)="addFriend(user.Nombre)">+</button>
+        </div> 
+    </div>
   
     
     <div *ngIf="isActive('Grupos')" class="results">
@@ -51,6 +64,47 @@
         <p>{{ friend.Nombre }}</p>
         <button class="add-button">></button>
       </div>
+    </div>
+
+    <div *ngIf="isActive('Crear grupo')" class="results">
+      <div class="edit-create-group">
+        <h4>Crear grupo</h4>
+      
+        <div class="group-info">
+          <label for="group-name">Nombre del grupo</label>
+          <input id="group-name" type="text" placeholder="Introduce un nombre" />
+      
+          <label for="add-participants">Añadir participantes</label>
+          <div class="participants-input">
+            <!-- <input id="add-participants" type="text" placeholder="Busca entre tus amigos..." />-->
+            <select name="add-participants" id="add-participants" placeholder="Busca entre tus amigos...">
+              <option>Busca entre tus amigos...</option>
+              <option *ngFor="let friend of userFriends"> {{ friend.Username }}</option>
+            </select>
+            <button (click)="addUserToGroup()">
+              <i class="fa fa-users" style="color: #ffffff;"></i>
+            </button>
+          </div>
+        </div>
+      
+        <div class="participants-list">
+          <h5>Participantes</h5>
+          <div class="participant" *ngIf="addUsers.length === 0">
+            <span>Aún no hay usuarios añadidos</span>
+          </div>
+          <div class="participant" *ngFor="let user of addUsers">
+            <img [src]="'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" alt="user" />
+            <span>{{ user }}</span>
+            <span (click)="deleteUser(user)" class="delate-user"><p>-</p></span>
+          </div>
+        </div>
+      
+        <div class="actions">
+          <button class="save-btn" (click)="saveGroup()">Guardar</button>
+          <button class="cancel-btn" (click)="cancelGroup()">Cancelar</button>
+        </div>
+      </div>
+      
     </div>
     
 

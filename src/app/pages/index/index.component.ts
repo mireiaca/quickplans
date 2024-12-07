@@ -43,16 +43,24 @@ export class IndexComponent implements OnInit {
         Localidad: '', 
         Email: '',
         Amigos: null, 
-        uuid: user.uid || ''
+        uuid: user.uid || '',
+        id: user.id || ''
       }));
     });
 
+    //PLANES
+    const currentDate = new Date();
+
     this.quickplanService.getQuickplansAsociados().subscribe(plans => {
-      this.pendingPlans = plans;
+      this.pendingPlans = plans.filter((quickplan: Quickplan) => {
+        return new Date(quickplan.Fecha_Incio) > currentDate;
+      });
     });
 
     this.quickplanService.getQuickplansAnomimos().subscribe(plans => {
-      this.plansAnonimous = plans;
+      this.plansAnonimous = plans.filter((quickplan: Quickplan) => {
+        return new Date(quickplan.Fecha_Incio) > currentDate;
+      });
     });
 
 

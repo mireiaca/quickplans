@@ -47,6 +47,11 @@ body {
     position: relative; 
 }
 
+hr {
+    margin: auto;
+    width: 90% !important;
+}
+
 .header > div {
     position: absolute;
     top: 80px;
@@ -56,7 +61,7 @@ body {
 
 .info-username {
     color:#117C6F;
-    margin-block: auto;
+    margin-block: 12%;
 }
 
 .profile-image {

@@ -1,1 +1,49 @@
-<p>edit-profile works!</p>
+<div class="edit-create-group" id="edit-create-group">
+    <h4>Editar grupo</h4>
+  
+    <div class="group-info">
+      <label for="group-name">Nombre de usuario</label>
+      <div class="img-name">
+        <input id="name" type="text" placeholder="Introduce tu nombre" [(ngModel)]="user.field_nombre">
+        <div class="upload-overlay img-group" (click)="uploadImageFunction()">
+            <input type="file" id="file-input"  style="display: none;">
+            <div class="upload-text">Subir imagen</div>
+        </div>
+      </div>
+
+      <label for="group-name">Intereses</label>
+      <div class="user-intereses">
+        <select name="" id="interest1">
+            <option value="">{{ getMyInterests()[0] ? getMyInterests()[0] : 'Interés 1' }}</option>
+            <option value="">Select</option>            
+            <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option>            
+        </select>
+        <select name="" id="interest2">
+            <option value="">{{ getMyInterests()[1] ? getMyInterests()[1] : 'Interés 2' }}</option>
+            <option value="">Select</option>            
+            <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option> 
+        </select>
+        <select name="" id="interest3">
+            <option value="">{{ getMyInterests()[2] ? getMyInterests()[2] : 'Interés 3' }}</option>
+            <option value="">Select</option>
+            <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option> 
+        </select>
+      </div>
+
+      <label for="group-name">Localidad</label>
+      <div class="">
+        <input id="localidad" type="text" placeholder="Localidad" [(ngModel)]="user.Localidad">
+      </div>
+
+      <label for="group-name">Biografía</label>
+      <div class="">
+        <textarea id="biografia" type="text" class="biografia" [(ngModel)]="user.Biografia"></textarea>
+      </div>
+        
+    </div>
+  
+    <div class="actions">
+      <button class="save-btn" (click)="saveUser()">Guardar</button>
+      <button class="cancel-btn" (click)="cancel()">Cancelar</button>
+    </div>
+  </div>

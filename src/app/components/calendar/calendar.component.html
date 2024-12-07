@@ -1,4 +1,23 @@
-<full-calendar 
-  [plugins]="calendarPlugins" 
-  [events]="calendarEvents">
-</full-calendar>
+<div class="nav">
+    <button (click)="changeMonth(-1)"><<</button>
+    <span>{{ currentDate | date: 'MMMM yyyy' }}</span>
+    <button (click)="changeMonth(1)">>></button>
+  </div>
+  
+  <div class="calendar">
+    <div *ngFor="let day of daysInMonth" class="day" [class.empty]="day === 0">
+      <div *ngIf="day !== 0">
+        <span>{{ day }}</span>
+        <div *ngFor="let event of getEvents(day)" class="event">{{ event }}</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal para añadir eventos -->
+  <div *ngIf="showModal" class="modal">
+    <h3>Añadir Evento para el {{ selectedDay }}/{{ currentDate.getMonth() + 1 }}/{{ currentDate.getFullYear() }}</h3>
+    <input [(ngModel)]="newEventName" placeholder="Nombre del evento" />
+    <button (click)="addEventToSelectedDate()">Añadir</button>
+    <button (click)="closeModal()">Cerrar</button>
+  </div>
+  

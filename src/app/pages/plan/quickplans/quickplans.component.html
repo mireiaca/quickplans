@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="search">
+        <div class="search-bar ">
+            <input type="text" id="search" placeholder="¿Qué plan buscas hoy?" (click)="reloadQuickplans()" />
+            <button (click)="searchFilter()">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </button>
+        </div>
+        <div class="search-bar ">
+            <input type="text" id="location" placeholder="Localización" (click)="reloadQuickplans()" />
+            <button class="btn-location" (click)="filterLocation()">
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            </button>
+        </div>
+    </div>
+
+    <!--Planes anonimos-->
+    <div class="card" *ngFor="let quickplan of quickplansAnonimos" (click)="verPlan(quickplan.nid)">
+        <img [src]="quickplan.Imagen ? environment.apiBaseUrl + quickplan.Imagen : 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png'" alt="{{ quickplan.Titulo }}">
+        <div class="card-content">
+            <h2>{{ quickplan.Titulo }}</h2>
+            <p>{{ quickplan.Descripcion }}</p>
+        </div>
+    </div>
+
+    <!--Planes pendientes-->
+    <div class="card" *ngFor="let quickplan of quickplansPending" (click)="verPlan(quickplan.nid)">
+        <img [src]="quickplan.Imagen ? environment.apiBaseUrl + quickplan.Imagen : 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png'" alt="{{ quickplan.Titulo }}">
+        <div class="card-content">
+            <h2>{{ quickplan.Titulo }}</h2>
+            <p>{{ quickplan.Descripcion }}</p>
+        </div>
+    </div>
+
+    <!--Planes aceptados-->
+    <div class="card" *ngFor="let quickplan of quickplansAdded" (click)="verPlan(quickplan.nid)">
+        <img [src]="quickplan.Imagen ? environment.apiBaseUrl + quickplan.Imagen : 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png'" alt="{{ quickplan.Titulo }}">
+        <div class="card-content">
+            <h2>{{ quickplan.Titulo }}</h2>
+            <p>{{ quickplan.Descripcion }}</p>
+        </div>
+    </div>
+
+    <!-- <div class="card">
+        <img src='http://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png' alt="English Beers">
+        <div class="card-content">
+            <h2>english beers</h2>
+            <p> Quedamos para practicar nuestro inglés y conocer gente.</p>
+        </div>
+    </div> -->
+</div>

@@ -1,0 +1,200 @@
+//ADD group 
+.edit-create-group {
+    padding: 20px;
+  
+    h4, h5 {
+      color: #117C6F;
+    }
+
+    .img-group {
+      border-radius: 50%;
+      box-shadow: 0 4px 8px #117C6F;
+      width: 20%;
+      height: 82px;
+      background-image: url('https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png');
+      background-size: cover;
+      background-position: center;
+      background-color: #00000075;
+
+      .upload-text {
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+        margin: 12px;
+      }
+    }
+  
+    .delate-user p {
+      border-radius: 50%;
+      background-color: #117C6F;
+      color: white;
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      margin-block: auto;
+      text-align: center;
+      margin-left: auto;
+    }
+  
+    .participants-input {
+      width: 100%;
+      display: inline-block;
+    }
+  
+    button {
+      background-color: #005e56;
+      border: none;
+      width: 15%;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px #117C6F;
+      margin-left: 10px;
+    }  
+
+  
+    .group-info {
+      label {
+        display: block;
+        font-weight: bold;
+        margin: 10px 0 5px;
+      }
+
+      .img-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+          margin-block: auto;
+          box-shadow: 0 4px 8px #117C6F;
+        }
+      }
+
+      #group-name {
+        width: 75%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px #117C6F;
+      }
+  
+      select {
+        color: grey;
+        width: 81%;
+      }
+  
+      .participants-input {
+        position: relative;
+  
+        .dropdown-icon {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .participants-list {
+      h3 {
+        margin-bottom: 10px;
+        color: #117C6F;
+      }
+  
+      .participant {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+  
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+          margin-left: 14px;
+        }
+  
+        span {
+          flex-grow: 1;
+          margin-left: 14px;
+        }
+  
+        .remove-btn {
+          background-color: #f44336;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .actions {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+  
+      .cancel-btn {
+        background-color: transparent;
+        color: #117C6F;
+        border: 1px solid #117C6F;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: auto;
+      }
+  
+      .save-btn {
+        background-color: #117C6F;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: auto;
+      }
+    }
+  }
+  
+@media screen and (min-width: 768px) {
+    .edit-create-group {
+      padding-inline: 25%;
+      padding-top: 40px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .edit-create-group {
+      .img-group {
+        width: 13%;
+        margin-inline: 5%;
+      }
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .edit-create-group {
+
+      #group-name {
+        width: 70% !important;
+      }
+      .img-group {
+        width: 25%;
+      }
+    }
+}

@@ -1,21 +1,57 @@
-<div class="card-container">
-    <div class="card">
-      <div class="card-header">
-        <img src="ruta-imagen.jpg" alt="Persona en la montaña">
-      </div>
-      <div class="card-body">
-        <h2>Ruta x montaña</h2>
-        <p class="location">Valladolid, España</p>
-        <p class="description">
-          Saldremos el Sábado por la mañana a hacer senderismo por la montaña palentina, somos aficionados de la montaña.
-        </p>
-        <div class="tags">
-          <span class="tag">Montaña</span>
-          <span class="tag">Naturaleza</span>
-          <span class="tag">Deporte</span>
-        </div>
-        <p class="date-time">Sáb, 13 de Mayo de 2024 - 09:00 a 14:30</p>
-        <button class="join-button">Unirme</button>
-      </div>
+<div class="quick-plan-form">
+  <div class="img-name"> 
+    <div class="upload-overlay img-group"
+    [ngStyle]="{'background-image': quickplan?.field_imagen[0]?.url ? 'url(' + quickplan.field_imagen[0].url + ')' : 'url(http://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png)'}">
     </div>
   </div>
+  <div class="form-group">
+      <input type="text" id="name" placeholder="Título" [(ngModel)]="quickplan?.title[0].value">
+  </div>
+  <div class="form-group location">
+      <input type="text" id="location" placeholder="¿Dónde?" [(ngModel)]="quickplan?.field_location[0].value">
+      <span (click)="openMapDialog()"><i class="fa-solid fa-location-dot icono"></i></span>
+  </div>
+  <div class="form-group">
+      <textarea readonly type="text" id="what" placeholder="¿Qué?" [(ngModel)]="quickplan?.field_descripcion[0].value"></textarea>
+  </div>
+  <div class="form-group" *ngIf="type !='Anónimo'">
+      <select id="who"  name="" *ngIf="type=='Grupal'">
+        <option *ngIf="agregados.length > 0" [value]="group" disabled selected>{{group}}</option>
+        <option *ngIf="!agregados?.length" [value]="'¿' + group + '?'" disabled selected>{{'¿' + group + '?'}}</option>
+      </select>
+      <select id="who" name="" *ngIf="type=='Amistoso'">
+          <option disabled selected *ngIf="agregados.length > 0" [value]="agregados[0]">{{agregados[0]}}</option>
+          <option disabled selected *ngIf="!agregados?.length" [value]="'¿' + asociados[0] + '?'">{{'¿' + asociados[0] + '?'}}</option>
+      </select>
+  </div>
+  <div class="user-intereses" *ngIf="type=='Anónimo'">
+      <select disabled  name="" id="interest" *ngFor="let interes of intereses; let i = index" [ngModel]="interes" [id]="'interes' + (i + 1)">
+          <option [value]="interes" disabled selected>{{interes}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="when" id="labelWhen">¿Cuándo?</label>
+      <div class="inicio">
+          <input type="datetime-local" id="when-since" [(ngModel)]="formattedFechaInicio">
+      </div>
+      <div class="fin">
+          <input type="datetime-local" id="when-until" [(ngModel)]="formattedFechaFin">
+      </div>
+  </div>
+  <div *ngIf="isParticipating == false">
+    <div *ngIf="type=='Grupal'" class="btn-quickplans">
+        <button type="button">Unirme</button>
+        <button type="button">Lo pienso</button>
+        <button type="button" class="btn-cancel">Rechazar</button>
+    </div>
+    <div *ngIf="type=='Amistoso'" class="btn-quickplans">
+      <button type="button">Unirme</button>
+      <button type="button">Lo pienso</button>
+      <button type="button" class="btn-cancel">Rechazar</button>
+    </div>
+    <div *ngIf="type=='Anónimo'" class="btn-quickplans">
+        <button type="button">Unirme</button>
+    </div>
+  </div>
+  <!-- <button type="button" class="quick-plan-button">QuickPlan</button> -->
+</div>

@@ -34,11 +34,17 @@
         <div class="calendar-card">
           <div class="calendar-header">
             <h4>QuickPlanner</h4>
-            <a class="settings-button links" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+            <div class="calendar-buttons">  
+              <a class="settings-button links" href="/chat/:id"><i class="fa-regular fa-message"></i></a>
+              <a class="settings-button links" href="/add-quickplan"><i class="fa-regular fa-calendar-plus"></i></a>
+              <a class="settings-button links" (click)="deleteFriend()"><i class="fa-solid fa-user-slash"></i></a>
+            </div>
           </div>
+          <hr/>
           <div class="calendar">
-            <!-- Calendario estático como ejemplo -->
-            <table>
+            <app-calendar></app-calendar>
+            <!-- Calendario ejemplo -->
+            <!-- <table>
               <thead>
                 <tr>
                   <th>L</th>
@@ -97,7 +103,7 @@
                   <td></td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User, UserService } from '../../../services/user/user.service';
 import { environment } from '../../../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,6 +23,13 @@ export class UserProfileComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute
   ) {}
+
+  deleteFriend(): void {
+    const username = this.route.snapshot.paramMap.get('username');
+    if (username) {
+      this.userService.removeFriend(username);
+    }
+  }
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get('username');

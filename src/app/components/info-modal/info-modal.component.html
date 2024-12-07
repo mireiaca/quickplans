@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+
+<div class="container" mat-dialog-content>
+  <p>{{ content }}</p>
+  <div *ngIf="additionalInfo" class="additional-info">
+    <strong>Información adicional:</strong>
+    <p>{{ additionalInfo }}</p>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="close()" 
+    [ngStyle]="{'background-color': contentBgColor, 'color': white, 'border': none, 'margin': auto}">
+    Cerrar
+  </button>
+</div>

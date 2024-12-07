@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { EditGroupComponent } from './groups/edit-group/edit-group.component';
+import { ComponentsModule } from '../components/components.module';
+import { QuickplansComponent } from './plan/quickplans/quickplans.component';
+import { QuickplanComponent } from './plan/quickplan/quickplan.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { EditGroupComponent } from './groups/edit-group/edit-group.component';
     GroupComponent,
     EditProfileComponent,
     UserProfileComponent,
-    EditGroupComponent
+    EditGroupComponent,
+    QuickplansComponent,
+    QuickplanComponent
   ],
   exports: [
     AddQuickplanComponent,
@@ -46,6 +51,7 @@ import { EditGroupComponent } from './groups/edit-group/edit-group.component';
   imports: [
     CommonModule,
     FormsModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }

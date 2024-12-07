@@ -1,5 +1,5 @@
 <div class="container">
-  <!-- Primera sección -->
+  <!-- Planes anónimos -->
   <div class="section">
     <h5>¿Qué plan se te antoja hoy?</h5>
     <div class="cards-container">
@@ -10,22 +10,22 @@
     </div>
   </div>
 
-  <!-- Segunda sección -->
+  <!-- Amigos -->
   <div class="section">
     <h5>Mira cómo de ocupados están tus amigos...</h5>
     <div class="cards-container">
     <div *ngFor="let friend of userFriends" class="card" (click)="viewUserProfile(friend.Username)">
-      <img [src]="friend.Imagen || 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" [alt]="friend.Nombre">
+      <img [src]="friend.Imagen || 'http://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" [alt]="friend.Nombre">
       <p>{{ friend.Nombre }}</p>
     </div>
     </div>
   </div>
 
-  <!-- Tercera sección -->
+  <!-- Planes pendientes -->
   <div class="section">
     <h5>Aún no has aceptado</h5>
     <div class="cards-container">
-      <div *ngFor="let pendingPlan of pendingPlans" class="card" (click)="viewQuickplan(pendingPlan.Titulo)">
+      <div *ngFor="let pendingPlan of pendingPlans" class="card" (click)="viewQuickplan(pendingPlan.nid)">
         <img [src]="environment.apiBaseUrl + pendingPlan.Imagen || 'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" [alt]="pendingPlan.Titulo">
         <p>{{ pendingPlan.Titulo }}</p>
       </div>

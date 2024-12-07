@@ -1,32 +1,51 @@
 <div class="quick-plan-form">
-        <div class="icon">
-            <img src="download-icon.png" alt="Download Icon">
+        <div class="img-name">
+        <div class="upload-overlay img-group" (click)="uploadImageFunction()">
+            <input type="file" id="file-input"  style="display: none;">
+            <div class="upload-text">Subir imagen</div>
         </div>
-        <h2 class="title">Título</h2>
+      </div>
         <div class="form-group">
-            <label for="location">¿Dónde?</label>
+            <input type="text" id="name" placeholder="Título">
+        </div>
+        <div class="form-group location">
             <input type="text" id="location" placeholder="¿Dónde?">
+            <span (click)="openMapDialog()"><i class="fa-solid fa-location-dot icono"></i></span>
         </div>
         <div class="form-group">
-            <label for="what">¿Qué?</label>
-            <input type="text" id="what" placeholder="¿Qué?">
+            <textarea type="text" id="what" placeholder="¿Qué?"></textarea>
         </div>
-        <div class="form-group">
-            <label for="who">¿Con quién?</label>
-            <select id="who">
-                <option value="" disabled selected>¿Con quién?</option>
-                <!-- Add options here -->
+        <div class="form-group" *ngIf="getType()!='anonimo'">
+            <select id="who" *ngIf="getType()=='grupal'">
+                <option value="" selected>¿Con quién?</option>
+                <option *ngFor="let group of userGroups">{{ group.Titulo }}</option>
+            </select>
+            <select id="who" *ngIf="getType()=='amistoso'">
+                <option value="" selected>¿Con quién?</option>
+                <option *ngFor="let friend of userFriends" [value]="friend.Username">{{ friend.Username }}</option>
+            </select>
+        </div>
+        <div class="user-intereses" *ngIf="getType()=='anonimo'">
+            <select name="" id="interest1">
+                <option value="">Select</option>            
+                <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option>                      
+            </select>
+            <select name="" id="interest2">
+                <option value="">Select</option>            
+                <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option>            
+            </select>
+            <select name="" id="interest3">
+                <option value="">Select</option>            
+                <option value="" *ngFor="let interest of interests">{{ interest.nombre }}</option> 
             </select>
         </div>
         <div class="form-group">
-            <label for="when">¿Cuándo?</label>
+            <label for="when" id="labelWhen">¿Cuándo?</label>
             <div class="inicio">
-                <input type="date" id="when-since">
-                <input type="time" id="when-since">
+                <input type="datetime-local" id="when-since">
             </div>
             <div class="fin">
-                <input type="date" id="when-until">
-                <input type="time" id="when-until">
+                <input type="datetime-local" id="when-until">
             </div>
         </div>
         <button type="button" class="quick-plan-button">QuickPlan</button>

@@ -19,6 +19,10 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
+  editUserProfile(): void {
+    window.location.href = `/edit-profile`;
+  }
+
   ngOnInit(): void {
     this.userService.getUser().subscribe((users: User[]) => {
       if (users.length > 0) {

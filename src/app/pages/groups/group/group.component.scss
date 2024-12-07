@@ -8,6 +8,11 @@ body {
     background-color: #f0f0f0;
 }
 
+hr {
+    margin: auto;
+    width: 90% !important;
+}
+
 .links {
     text-decoration: none;
     display: inline-flex; 
@@ -105,6 +110,7 @@ body {
     hr {
         color: #117C6F;
         width: 80%;
+        margin: 0;
     }
 }
 
@@ -255,7 +261,7 @@ body {
 
 @media screen and (max-width: 750px) {
     .header {
-        padding: 60px;
+        padding: 70px;
         padding-inline: 6vw;
     }
 

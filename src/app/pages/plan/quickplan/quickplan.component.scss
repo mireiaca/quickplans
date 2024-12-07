@@ -1,103 +1,250 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  
-  .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
-    width: 100%;
-  }
-  
-  .card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  .card-header img {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #e0e0e0;
-  }
-  
-  .card-body {
-    padding: 1.5rem;
-  }
-  
-  h2 {
-    margin: 0.5rem 0;
-    color: #007b5e;
-  }
-  
-  .location {
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  .description {
-    margin: 1rem 0;
-    color: #333;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-  
-  .tags {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .tag {
-    background-color: #e7f5e9;
-    color: #007b5e;
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.85rem;
-    font-weight: bold;
-  }
-  
-  .date-time {
-    color: #444;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-  
-  .join-button {
-    background-color: #007b5e;
-    color: #ffffff;
-    border: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .join-button:hover {
-    background-color: #007b5e;
-  }
-  
-  /* Responsive design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.quick-plan-form {
+  margin: auto;
+  margin-top: 30px;
+  background-color: #e6f2ee;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 40vw;
+
   @media (max-width: 768px) {
-    .card {
-      margin: 0 1rem;
-    }
+      width: 90vw;
+  }
+
+  .icon {
+      margin-bottom: 10px;
+
+      img {
+          width: 50px;
+          height: 50px;
+      }
+  }
+
   
-    .card-body {
-      padding: 1rem;
+  select {
+    -webkit-appearance: none !important; 
+    -moz-appearance: none !important; 
+    -ms-appearance: none !important; 
+    appearance: none !important;
+    appearance: none !important;
+    color: #117C6F !important;
+    font-size: small;
+    text-align: center;
+  }
+
+  .title {
+      margin: 10px 0;
+      color: #117C6F;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+  }
+
+  .input-group {
+      display: inline-flex;
+  }
+
+  .form-group {
+      margin: 10px 0;
+      text-align: left;
+      display: inline;
+
+      div {
+          display: flex;
+      }
+
+      textarea {
+        font-size: smaller;
+        height: 100px;
+        padding: 5px !important;
+        pointer-events: all !important;
+        text-justify: auto;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            cursor: pointer;
+          }
+    
+          &::-webkit-scrollbar-thumb {
+            background-color: #005e56;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+    
+          &::-webkit-scrollbar-track {
+            background-color: #f7f8f9;
+          }
+      }
+
+      input, select, textarea {
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #cccccc;
+          border-radius: 5px;
+          text-align: center; 
+          pointer-events: none;
+      }
+
+      input[type="date"] {
+          padding: 9px;
+      }
+
+      .location {
+          display: flex;
+          align-content: center;
+          background-color: #117C6F !important;
+      }
+      
+      .icono {
+          cursor: pointer;
+          padding: 7px;
+          left: -10px;
+          border-radius: 10px;
+          color: white;
+          background-color: rgba(17, 124, 111, 1);
+      }
+
+      #name {
+          color: #117C6F;
+          background-color: #e6f2ee;
+          border: none ;
+          border-bottom: 1px solid #117C6F;
+          padding-bottom: 2px;
+
+          &::placeholder {
+              color: #117C6F;
+              opacity: 1;
+            }
+      }
+
+      #location {
+        color: #fff;
+        pointer-events: none;
+        width: 50%;
+        padding: 2px;
+        background-color: rgba(17, 124, 111, 0.6);
+
+        &::placeholder {
+          color: #fff; 
+          opacity: 1;
+        }
+      }
+
+      #labelWhen {
+          color: #117C6F;
+      }
+
+      #who {
+        padding: 2px;
+        background-color: rgba(17, 124, 111, 0.6);
+        color: #fff !important; 
+        margin-bottom: 16px;
+
+        option {
+          background-color: #fff;
+        }
+      }
+
+      #when-since,
+      #when-until {
+        background-color: rgba(17, 124, 111, 0.6);
+        color: #fff; 
+        margin-block: 2px;
+
+        option {
+          background-color: #fff;
+        }
+      }
+  }
+
+  .btn-quickplans {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    button {
+      width: 100% !important;
+      padding-block: 12px !important;
+      margin-inline: 2px;
+      background-color: #117C6F;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #006f53;
+      }
+    }
+
+    .btn-cancel {
+      background-color: #f44336;
+
+      &:hover {
+        background-color: #ad4024;
+      }
     }
   }
-  
+
+  .img-group {
+      border-radius: 50%;
+      box-shadow: 0 4px 8px #117C6F;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      background-image: url('http://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png');
+      background-size: cover;
+      background-position: center;
+      padding-block: 15px;
+  }
+  .user-intereses {
+      select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-shadow: 0 4px 8px #117C6F;
+          color: #00000075; 
+      }
+  }
+
+  .user-intereses {
+      display: flex;
+      justify-content: space-between;
+      
+      select {
+          margin-inline: 2px;
+          box-shadow: 0 1px 6px #117C6F !important;
+      }
+  }
+
+  .quick-plan-button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      background-color: #117C6F;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+          background-color: #006f53;
+      }
+  }
+}

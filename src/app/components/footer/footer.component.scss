@@ -44,9 +44,9 @@ ul {
 .footer-col {
   width: 33%;
   padding: 0 15px;
-  display: flex; /* Add flexbox */
-  flex-direction: column; /* Ensure vertical layout */
-  align-items: normal; /* Center horizontally */
+  display: flex; 
+  flex-direction: column; 
+  align-items: normal; 
 
   h4 {
     font-size: 18px;
@@ -88,18 +88,18 @@ ul {
 
   .social-links {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
   }
 
   .social-links a {
     text-decoration: none;
     color: #FFF;
     background-color: #117C6F;
-    display: flex; /* Change from inline-block to flex */
-    justify-content: center; /* Center icon horizontally */
-    align-items: center; /* Center icon vertically */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     height: 40px;
     width: 40px;
     border-radius: 50%;

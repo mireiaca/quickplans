@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Añadir y eliminar usuarios</h1>
+<div class="container" mat-dialog-content>
+  <mat-list>
+    <!-- Lista de amigos  -->
+    <mat-list-item *ngFor="let friend of userFriends" [ngStyle]="{ display: 'flex', 'align-items': 'center', 'justify-content': 'space-between' }">
+      <div [ngStyle]="symbolColumnStyle" (click)="addUser(friend.Username)">+</div>
+      <div [ngStyle]="nameColumnStyle">{{ friend.Nombre }}</div>
+    </mat-list-item>
+
+    <!-- Lista de miembros  -->
+    <mat-list-item *ngFor="let member of members" [ngStyle]="{ display: 'flex', 'align-items': 'center', 'justify-content': 'space-between' }">
+      <div [ngStyle]="symbolColumnStyle" (click)="deleteUser(member.Username)">-</div>
+      <div [ngStyle]="nameColumnStyle">{{ member.Nombre }}</div>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="close()" 
+        [ngStyle]="{'background-color': contentBgColor, 'color': white, 'border': none, 'margin': auto}">
+    Cerrar
+  </button>
+</div>

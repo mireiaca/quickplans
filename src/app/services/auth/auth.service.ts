@@ -71,7 +71,7 @@ export class AuthService {
     const token = localStorage.getItem('tokenlogout');
     const logoutEndpoint = `${environment.apiBaseUrl}/user/logout?_format=json&token=${token}`;
 
-    // Elimina los tokens en el localStorage
+    // Eliminar los tokens en el localStorage
     localStorage.removeItem('username');
     localStorage.removeItem('csrf_token');
     localStorage.removeItem('tokenlogout');

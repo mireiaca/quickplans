@@ -1,1 +1,43 @@
-<p>edit-group works!</p>
+<div class="edit-create-group">
+    <h4>Editar grupo</h4>
+  
+    <div class="group-info">
+      <label for="group-name">Nombre del grupo</label>
+      <div class="img-name">
+        <input id="group-name" type="text" placeholder="Introduce un nombre" [(ngModel)]="group.Titulo">
+        <div class="upload-overlay img-group" (click)="uploadImageFunction()">
+            <input type="file" id="file-input"  style="display: none;">
+            <div class="upload-text">Subir imagen</div>
+        </div>
+      </div>
+        
+
+      <label for="add-participants">Añadir participantes</label>
+      <div class="participants-input">
+        <select name="add-participants" id="add-participants" placeholder="Busca entre tus amigos...">
+          <option value="">Busca entre tus amigos...</option>
+          <option *ngFor="let friend of userFriends" [value]="friend.Username">{{ friend.Username }}</option>
+        </select>
+        <button (click)="addUserToGroup()">
+          <i class="fa fa-users" style="color: #ffffff;"></i>
+        </button>
+      </div>
+    </div>
+  
+    <div class="participants-list">
+      <h5>Participantes</h5>
+      <div class="participant" *ngFor="let member of members">
+        <img [src]="'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" alt="user" />
+        <span>{{ member.Username }}</span>
+      </div>
+      <div class="participant" *ngFor="let user of addUsers">
+        <img [src]="'https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png'" alt="user" />
+        <span>{{ user }}</span>
+      </div>
+    </div>
+  
+    <div class="actions">
+      <button class="save-btn" (click)="saveGroup()">Guardar</button>
+      <button class="cancel-btn" (click)="cancel()">Cancelar</button>
+    </div>
+  </div>

@@ -4,7 +4,7 @@
   </div>
   <div class="form-section">
     <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-      <!-- Campo de usuario -->
+      
       <div class="input-group">
         <input
           type="text"
@@ -16,12 +16,11 @@
           #usernameField="ngModel" 
         />
         <!-- Mensaje de error cuando el campo está vacío -->
-        <div *ngIf="usernameField.invalid && usernameField.touched" class="error-message">
+        <!-- <div *ngIf="usernameField.invalid && usernameField.touched" class="error-message">
           El nombre de usuario es requerido.
-        </div>
+        </div> -->
       </div>
 
-      <!-- Campo de contraseña -->
       <div class="input-group">
         <input
           type="password"
@@ -32,7 +31,6 @@
           required
           #passwordField="ngModel"
         />
-        <!-- Mensaje de error cuando el campo está vacío -->
         <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
           La contraseña es requerida.
         </div>
@@ -42,9 +40,9 @@
       </div>
 
       <!-- Mostrar error de login -->
-      <div *ngIf="errorMessage" class="error-message">
+      <!-- <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
-      </div>
+      </div> -->
 
       <div class="social-login">
         <p> - O - </p>

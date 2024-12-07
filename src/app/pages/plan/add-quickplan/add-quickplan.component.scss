@@ -32,37 +32,159 @@ body {
 
     .title {
         margin: 10px 0;
-        color: #006f63;
+        color: #117C6F;
         font-family: Arial, sans-serif;
         font-size: 24px;
+    }
+
+    .input-group {
+        display: inline-flex;
+    }
+
+    #interest1, #interest2, #interest3 {
+        font-size: smaller !important;
     }
 
     .form-group {
         margin: 10px 0;
         text-align: left;
-
+        display: inline;
 
         div {
             display: flex;
         }
 
-        input, select {
+        textarea {
+            height: 100px;
+            text-justify: auto;
+        }
+
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #cccccc;
             border-radius: 5px;
+            text-align: center; 
         }
 
         input[type="date"] {
             padding: 9px;
         }
+
+        .location {
+            display: flex;
+            align-content: center;
+            background-color: #117C6F !important;
+        }
+        
+        .icono {
+            cursor: pointer;
+            padding: 7px;
+            left: -10px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgba(17, 124, 111, 1);
+        }
+
+        #name {
+            background-color: #e6f2ee;
+            border: none ;
+            border-bottom: 1px solid #117C6F;
+            padding-bottom: 2px;
+
+            &::placeholder {
+                color: #117C6F;
+                opacity: 1;
+              }
+        }
+
+        #location {
+          pointer-events: none;
+          width: 50%;
+          padding: 2px;
+          background-color: rgba(17, 124, 111, 0.6);
+
+          &::placeholder {
+            color: #fff; 
+            opacity: 1;
+          }
+        }
+
+        #labelWhen {
+            color: #117C6F;
+        }
+
+        #who {
+          padding: 2px;
+          background-color: rgba(17, 124, 111, 0.6);
+          color: #fff; 
+          margin-bottom: 16px;
+
+          option {
+            background-color: #fff;
+            color: #117C6F;
+          }
+        }
+
+        #when-since,
+        #when-until {
+          background-color: rgba(17, 124, 111, 0.6);
+          color: #fff; 
+          margin-block: 2px;
+
+          option {
+            background-color: #fff;
+          }
+        }
+    }
+
+    .img-group {
+        border-radius: 50%;
+        box-shadow: 0 4px 8px #117C6F;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-image: url('https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/group.png');
+        background-size: cover;
+        background-position: center;
+        background-color: #00000075;
+        padding-block: 15px;
+  
+        .upload-text {
+          color: #fff;
+          cursor: pointer;
+          text-align: center;
+          margin: 12px;
+        }
+    }
+    .user-intereses {
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px #117C6F;
+            color: #00000075; 
+        }
+    }
+
+    .user-intereses {
+        display: flex;
+        justify-content: space-between;
+        
+        select {
+            margin-inline: 2px;
+            box-shadow: 0 1px 6px #117C6F !important;
+        }
     }
 
     .quick-plan-button {
+        margin-top: 10px;
         width: 100%;
-        padding: 10px;
-        background-color: #008060;
+        padding: 12px;
+        background-color: #117C6F;
         color: #ffffff;
         border: none;
         border-radius: 5px;

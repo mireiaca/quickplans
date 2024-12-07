@@ -8,6 +8,11 @@ body {
     background-color: #f0f0f0;
 }
 
+hr {
+    margin: auto;
+    width: 90% !important;
+}
+
 .links {
     text-decoration: none;
     display: inline-flex; 
@@ -32,7 +37,7 @@ body {
 }
 
 .info-username {
-    margin-block: auto;
+    margin-block: 12%;
     color:#117C6F;
 }
 

@@ -15,6 +15,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
+      /* overflow-x: scroll; */
 
       .card {
         height: 110px;
@@ -53,7 +54,7 @@
   }
 }
 
-// Responsividad
+// Responsive
 @media (min-width: 769px) {
   .cards-container {
     .card {
