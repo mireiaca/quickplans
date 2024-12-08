@@ -1,0 +1,316 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8f9;
+  }
+  
+  .container {
+    grid-template-columns: 1fr 3fr; 
+    gap: 26px;
+    min-height: 73%;
+    padding-block: 40px;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; 
+      grid-template-rows: auto auto; 
+      padding-block: 25px;
+    }
+
+    @media (min-width: 768px) {
+      display: grid;
+    }
+  }
+  
+  .sidebar {
+    background-color: #ffffff;
+    margin-block: auto;
+    border-right: 1px solid #e0e0e0;
+    padding: 10px;
+  
+    .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+      li {
+        margin-block: 20px;
+        padding: 20px;
+        font-size: 16px;
+        text-align: center;
+        color: #444444;
+        cursor: pointer;
+  
+        &.active {
+          font-weight: bold;
+          color: #005e56;
+          border-radius: 8px;
+          background-color: rgba(17, 124, 111, 0.3);
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      margin-top: 0;
+
+      .menu ul {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        overflow-x: auto;
+
+        li {
+          flex: 1;
+          align-content: center;
+          text-align: center;
+          padding: 10px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    margin-block: 10px;
+  
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 16px;
+        outline: none;
+      }
+  
+      button {
+        background-color: #005e56;
+        border: none;
+        width: 60px;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+  
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  
+    .results {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      overflow-y: scroll;
+      max-height: 400px;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #005e56;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #f7f8f9;
+      }
+  
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+  
+      .friend-card {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin-right: 5px;
+        padding: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+  
+        .profile-picture {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-right: 15px;
+          background-color: #e0e0e0;
+  
+          &.placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+  
+        p {
+          flex: 1;
+          margin: 0;
+          font-size: 16px;
+          color: #444444;
+        }
+  
+        .add-button {
+          background-color: #005e56;
+          color: #ffffff;
+          border: none;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+//ADD group 
+.edit-create-group {
+  padding: 20px;
+
+  h4, h5 {
+    color: #117C6F;
+  }
+
+  .delate-user p {
+    border-radius: 50%;
+    background-color: #117C6F;
+    color: white;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    margin-block: auto;
+    text-align: center;
+    margin-left: auto;
+  }
+
+  .participants-input {
+    width: 100%;
+    display: inline-block;
+  }
+
+  button {
+    background-color: #005e56;
+    border: none;
+    width: 15%;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }  
+
+  #group-name {
+    width: 100% !important;
+  }
+
+  .group-info {
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      color: grey;
+      width: 81%;
+    }
+
+    .participants-input {
+      position: relative;
+
+      .dropdown-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .participants-list {
+    h3 {
+      margin-bottom: 10px;
+      color: #117C6F;
+    }
+
+    .participant {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      margin-bottom: 10px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-left: 14px;
+      }
+
+      span {
+        flex-grow: 1;
+        margin-left: 14px;
+      }
+
+      .remove-btn {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    .cancel-btn {
+      background-color: transparent;
+      color: #117C6F;
+      border: 1px solid #117C6F;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: auto;
+    }
+
+    .save-btn {
+      background-color: #117C6F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: auto;
+    }
+  }
+}

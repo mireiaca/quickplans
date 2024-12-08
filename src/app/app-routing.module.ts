@@ -29,7 +29,7 @@ const routes: Routes = [
   // Rutas privadas - autenticadas
   { path: 'profile', component: ProfileComponent }, // Profile page (post-login)
   { path: 'add-quickplan/:type', component: AddQuickplanComponent }, // Add QuickPlan page
-  { path: 'chat', component: ChatComponent }, // Chat page
+  { path: 'chats', component: ChatComponent }, // Chat page
   { path: 'community', component: CommunityComponent }, // Community page
   { path: 'group', component: GroupComponent }, // Group page
   { path: 'quickplan/:id', component: QuickplanComponent }, // QuickPlan page

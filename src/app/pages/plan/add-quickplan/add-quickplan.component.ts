@@ -36,7 +36,7 @@ export class AddQuickplanComponent implements OnInit {
     private googleCalendarService: GoogleCalendarService
   ) { }
 
-  async addEvent() {
+  /* async addEvent() {
     const event = {
       summary: 'Reunión de prueba',
       start: { dateTime: '2024-12-10T10:00:00-07:00', timeZone: 'America/Los_Angeles' },
@@ -49,7 +49,7 @@ export class AddQuickplanComponent implements OnInit {
     } catch (error) {
       console.error('Error al crear el evento:', error);
     }
-  }
+  } */
 
   // Mapa - Dialog
   openMapDialog(): void {

@@ -30,7 +30,8 @@ export class QuickplanComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private groupService: GroupService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private googleCalendarService: GoogleCalendarService
   ){}
 
   openMapDialog(): void {
