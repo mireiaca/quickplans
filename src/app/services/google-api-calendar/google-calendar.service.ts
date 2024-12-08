@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { loadGapiInsideDOM } from 'gapi-script';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root', // Proporciona este servicio a toda la aplicación
 })
 export class GoogleCalendarService {
   private gapi: any;
-  private CLIENT_ID = '799557942396-or87vucbmbse1jc1pjvsesc6hh7u0erk.apps.googleusercontent.com'; // Reemplázalo con tu Client ID
-  private API_KEY = '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'; // Reemplázalo con tu API Key
+  private CLIENT_ID = environment.googleClientId; // Reemplázalo con tu Client ID
+  private API_KEY = environment.googleClientSecret; // Reemplázalo con tu API Key
   private SCOPES = 'https://www.googleapis.com/auth/calendar';
 
   constructor() {
