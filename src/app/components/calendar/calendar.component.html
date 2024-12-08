@@ -8,7 +8,10 @@
     <div *ngFor="let day of daysInMonth" class="day" [class.empty]="day === 0">
       <div *ngIf="day !== 0">
         <span>{{ day }}</span>
-        <div *ngFor="let event of getEvents(day)" class="event">{{ event }}</div>
+        
+        <div *ngFor="let event of getEvents(day)"  value=event class="event-marker" (click)="addEventDetails(event)"></div>
+        <!-- <div *ngIf="getEvents(day).length > 0" value=event class="event-marker" (click)="addEventDetails(event)"></div> -->
+        <!-- <div *ngFor="let event of getEvents(day)" class="event">{{ event }}</div> -->
       </div>
     </div>
   </div>

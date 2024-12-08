@@ -43,6 +43,9 @@
           <p>{{ user.Nombre }}</p>
           <button class="add-button" (click)="addFriend(user.Nombre)">+</button>
         </div> 
+        <div *ngIf="allUsers.length === 0" class="friend-card">
+          <p>Oh, oh... Parece que aún no hay usuarios</p>
+        </div>
     </div>
   
     
@@ -51,6 +54,9 @@
             <img class="profile-picture" [src]="environment.apiBaseUrl + group.Imagen" alt="{{ group.Titulo }}" />
             <p>{{ group.Titulo }}</p>
             <button class="add-button">></button>
+        </div>
+        <div *ngIf="userGroups.length === 0" class="friend-card">
+          <p>Oh, oh... Parece que aún no tienes grupos</p>
         </div>
     </div>
 
@@ -63,6 +69,9 @@
         />
         <p>{{ friend.Nombre }}</p>
         <button class="add-button">></button>
+      </div>
+      <div *ngIf="userFriends.length === 0" class="friend-card">
+        <p>Oh, oh... Parece que aún no tienes amigos</p>
       </div>
     </div>
 

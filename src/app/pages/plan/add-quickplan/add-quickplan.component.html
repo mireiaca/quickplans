@@ -18,7 +18,7 @@
         <div class="form-group" *ngIf="getType()!='anonimo'">
             <select id="who" *ngIf="getType()=='grupal'">
                 <option value="" selected>¿Con quién?</option>
-                <option *ngFor="let group of userGroups">{{ group.Titulo }}</option>
+                <option *ngFor="let group of userGroups" [value]="group.nid">{{ group.Titulo }}</option>
             </select>
             <select id="who" *ngIf="getType()=='amistoso'">
                 <option value="" selected>¿Con quién?</option>
@@ -48,5 +48,5 @@
                 <input type="datetime-local" id="when-until">
             </div>
         </div>
-        <button type="button" class="quick-plan-button">QuickPlan</button>
+        <button type="button" class="quick-plan-button" (click)="addQuickplan()">QuickPlan</button>
     </div>

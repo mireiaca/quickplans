@@ -22,6 +22,9 @@
             <p>{{ quickplan.Descripcion }}</p>
         </div>
     </div>
+    <div *ngIf="quickplansAnonimos.length === 0 && type == 'anonimos'" class="card empty">
+        <p>Oh, oh... Aún no hay planes anónimos</p>
+    </div>
 
     <!--Planes pendientes-->
     <div class="card" *ngFor="let quickplan of quickplansPending" (click)="verPlan(quickplan.nid)">
@@ -31,6 +34,9 @@
             <p>{{ quickplan.Descripcion }}</p>
         </div>
     </div>
+    <div *ngIf="quickplansPending.length === 0 && type == 'piensatelo'" class="card empty">
+        <p>Oh, oh... No hay planes pendientes</p>
+    </div>
 
     <!--Planes aceptados-->
     <div class="card" *ngFor="let quickplan of quickplansAdded" (click)="verPlan(quickplan.nid)">
@@ -39,6 +45,9 @@
             <h2>{{ quickplan.Titulo }}</h2>
             <p>{{ quickplan.Descripcion }}</p>
         </div>
+    </div>
+    <div *ngIf="quickplansAdded.length === 0 && type == 'mis-planes'" class="card empty">
+        <p>Oh, oh... No has aceptado ningún plan</p>
     </div>
 
     <!-- <div class="card">

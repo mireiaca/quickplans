@@ -42,9 +42,9 @@ export class EditProfileComponent {
           const interest1 = document.getElementById('interest1') as HTMLSelectElement | null;
           const interest2 = document.getElementById('interest2') as HTMLSelectElement | null;
           const interest3 = document.getElementById('interest3') as HTMLSelectElement | null;
-            const selectedInterest1 = interest1?.options[interest1.selectedIndex]?.text ?? '';
-            const selectedInterest2 = interest2?.options[interest2.selectedIndex]?.text ?? '';
-            const selectedInterest3 = interest3?.options[interest3.selectedIndex]?.text ?? '';
+          const selectedInterest1 = interest1?.options[interest1.selectedIndex]?.text ?? '';
+          const selectedInterest2 = interest2?.options[interest2.selectedIndex]?.text ?? '';
+          const selectedInterest3 = interest3?.options[interest3.selectedIndex]?.text ?? '';
           const localidad = document.getElementById('localidad') as HTMLInputElement | null;
           const biografia = document.getElementById('biografia') as HTMLTextAreaElement | null;
   

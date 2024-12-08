@@ -17,6 +17,13 @@
       gap: 15px;
       /* overflow-x: scroll; */
 
+      .empty {
+        flex: 1 1 100% !important; 
+        min-width: 100% !important;
+        height: 110px !important;
+        justify-content: center;
+      }
+
       .card {
         height: 110px;
         align-items: center;

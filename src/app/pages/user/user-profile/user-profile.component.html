@@ -36,13 +36,13 @@
             <h4>QuickPlanner</h4>
             <div class="calendar-buttons">  
               <a class="settings-button links" href="/chat/:id"><i class="fa-regular fa-message"></i></a>
-              <a class="settings-button links" href="/add-quickplan"><i class="fa-regular fa-calendar-plus"></i></a>
+              <a class="settings-button links" href="/add-quickplan/amistoso"><i class="fa-regular fa-calendar-plus"></i></a>
               <a class="settings-button links" (click)="deleteFriend()"><i class="fa-solid fa-user-slash"></i></a>
             </div>
           </div>
           <hr/>
           <div class="calendar">
-            <app-calendar></app-calendar>
+            <app-calendar [username]="usernameRoute"></app-calendar>
             <!-- Calendario ejemplo -->
             <!-- <table>
               <thead>

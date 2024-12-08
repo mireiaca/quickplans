@@ -19,6 +19,8 @@ export class UserProfileComponent implements OnInit {
     Username: ''
   };
 
+  usernameRoute = this.route.snapshot.paramMap.get('username') || '';
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute

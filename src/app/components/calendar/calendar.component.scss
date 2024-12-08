@@ -93,3 +93,13 @@
 .calendar td {
     background-color: #fff;
 }
+
+.event-marker {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  background-color: #117C6F;
+  border-radius: 50%; 
+  margin-top: 5px;
+  justify-self: center;
+}

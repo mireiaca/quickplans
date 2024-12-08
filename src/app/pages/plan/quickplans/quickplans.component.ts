@@ -13,6 +13,7 @@ export class QuickplansComponent implements OnInit {
   public quickplansAdded: Quickplan[] = [];
   public quickplansPending: Quickplan[] = [];
   public environment = environment;
+  public type: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +49,7 @@ export class QuickplansComponent implements OnInit {
 
   ngOnInit(): void {
     const type = this.route.snapshot.paramMap.get('type');
+    type ? this.type = type : this.type = '';
     /* console.log(type); */
 
     /* this.quickplanService.getQuickplansAnomimos().subscribe((quickplans: Quickplan[]) => {

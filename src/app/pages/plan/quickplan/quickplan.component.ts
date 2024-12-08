@@ -5,6 +5,8 @@ import { formatDate } from '@angular/common';
 import { GroupService, Group } from '../../../services/group/group.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MapViewDialogComponent } from '../../../components/map-view-dialog/map-view-dialog.component';
+import { InfoModalComponent } from '../../../components/info-modal/info-modal.component';
+import { GoogleCalendarService } from '../../../services/google-api-calendar/google-calendar.service';
 
 @Component({
   selector: 'app-quickplan',
@@ -27,7 +29,8 @@ export class QuickplanComponent implements OnInit {
     private quickplanService: QuickplanService,
     private cdr: ChangeDetectorRef,
     private groupService: GroupService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ){}
 
   openMapDialog(): void {
@@ -91,6 +94,34 @@ export class QuickplanComponent implements OnInit {
       });
       this.cdr.detectChanges();
       console.log(this.intereses);
+    });
+  }
+
+  modificarPlan(type: string): void {
+    this.quickplanService.editQuickplan(this.quickplan?.nid[0].value, type).subscribe((response: any) => {
+      const dialogRef = this.dialog.open(InfoModalComponent, {
+        data: {
+          title: 'Información',
+          content: 'Acción realizada con éxito'
+        },
+        width: '400px',
+        height: '200px',
+      });
+
+      dialogRef.afterClosed().subscribe(() => {
+        this.router.navigate(['/quickplans/mis-planes']);
+      });
+      console.log(response);
+    }, (error) => {
+    this.dialog.open( InfoModalComponent, {
+      data: {
+        title: 'Error',
+        content: 'Error al realizar la acción'
+      },
+      width: '400px',
+      height: '200px',
+    });
+      console.error('Error al modificar el plan:', error);
     });
   }
 

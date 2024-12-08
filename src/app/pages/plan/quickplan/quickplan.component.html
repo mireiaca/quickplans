@@ -40,17 +40,17 @@
   </div>
   <div *ngIf="isParticipating == false">
     <div *ngIf="type=='Grupal'" class="btn-quickplans">
-        <button type="button">Unirme</button>
+        <button type="button" (click)="modificarPlan('aceptar')">Unirme</button>
         <button type="button">Lo pienso</button>
-        <button type="button" class="btn-cancel">Rechazar</button>
+        <button type="button" class="btn-cancel" (click)="modificarPlan('rechazar')">Rechazar</button>
     </div>
     <div *ngIf="type=='Amistoso'" class="btn-quickplans">
-      <button type="button">Unirme</button>
+      <button type="button" (click)="modificarPlan('aceptar')">Unirme</button>
       <button type="button">Lo pienso</button>
-      <button type="button" class="btn-cancel">Rechazar</button>
+      <button type="button" class="btn-cancel" (click)="modificarPlan('rechazar')">Rechazar</button>
     </div>
     <div *ngIf="type=='Anónimo'" class="btn-quickplans">
-        <button type="button">Unirme</button>
+        <button type="button" (click)="modificarPlan('aceptar')">Unirme</button>
     </div>
   </div>
   <!-- <button type="button" class="quick-plan-button">QuickPlan</button> -->

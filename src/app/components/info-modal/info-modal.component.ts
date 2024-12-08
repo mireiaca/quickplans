@@ -17,6 +17,7 @@ export class InfoModalComponent implements OnInit {
   white = '#FFFFFF';
   none = 'none';
   auto = 'auto';
+  textCenter = 'center';
   inline = 'inline-block';
 
   constructor(
