@@ -77,6 +77,13 @@ export class QuickplanService {
     return this.http.get<{ uuid: string, nombre: string, tid: string }[]>(this.taxTypesPlans);
   }
 
+  //Cambiar lat long a localidad
+  changeLatLongToLocation(lat: string, long: string): Observable<any> {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}&zoom=10`;
+
+    return this.http.get(url);
+  }
+
   // Crear un plan
   sendQuickplanTemplate(quickplan: Quickplan, usuarios: string[], imagenId: string): Observable<any> {
     /* console.log('sendQuickplanTemplate called with:', quickplan, usuarios, imagenId); */

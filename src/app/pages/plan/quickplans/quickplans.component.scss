@@ -9,6 +9,14 @@ body {
 .empty {
     height: 100px;
     justify-content: center;
+    cursor: default !important;
+
+    p {
+       align-content: center;
+       margin: auto;
+       font-weight: bold;
+       color: #00796b;
+    }
 }
 
 .container {

@@ -24,6 +24,10 @@ export class IndexComponent implements OnInit {
   viewQuickplan(id: string): void {
     window.location.href = `/quickplan/${id}`;
   }
+  
+  get csrfToken(): string | null {
+    return localStorage.getItem('csrf_token');
+  }
 
   constructor(
     private userService: UserService,

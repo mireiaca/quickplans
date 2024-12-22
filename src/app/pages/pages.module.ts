@@ -17,6 +17,7 @@ import { EditGroupComponent } from './groups/edit-group/edit-group.component';
 import { ComponentsModule } from '../components/components.module';
 import { QuickplansComponent } from './plan/quickplans/quickplans.component';
 import { QuickplanComponent } from './plan/quickplan/quickplan.component';
+import { BasicPagesComponent } from './basic-pages/basic-pages.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { QuickplanComponent } from './plan/quickplan/quickplan.component';
     UserProfileComponent,
     EditGroupComponent,
     QuickplansComponent,
-    QuickplanComponent
+    QuickplanComponent,
+    BasicPagesComponent
   ],
   exports: [
     AddQuickplanComponent,

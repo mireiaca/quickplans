@@ -67,6 +67,13 @@ export class AddQuickplanComponent implements OnInit {
         console.log('Ubicación seleccionada:', result);
         this.latitud = result.lat;
         this.longitud = result.lng;
+
+        if(this.latitud != '' && this.longitud != '') {
+          this.quickplanService.changeLatLongToLocation(this.latitud, this.longitud).subscribe((response: any) => {
+            const city = response.address.city || response.address.town || response.address.village || '';
+            (document.getElementById('location') as HTMLInputElement).value = city;
+          });
+        }
       }
     });
   }

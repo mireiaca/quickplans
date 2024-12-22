@@ -17,6 +17,7 @@ import { UserHelpComponent } from './pages/user/user-help/user-help.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 import { EditGroupComponent } from './pages/groups/edit-group/edit-group.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { BasicPagesComponent } from './pages/basic-pages/basic-pages.component';
 
 const routes: Routes = [
   // Rutas publicas
@@ -25,6 +26,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent }, // Register page
   { path: 'recover-password', component: RecoverComponent }, // Recover password page
   { path: 'index', component: IndexComponent }, // Index page
+  { path: 'policy-cookies', component: BasicPagesComponent }, // Policy page
+  { path: 'policy-privacy', component: BasicPagesComponent }, // Policy page
+  { path: 'legal-notice', component: BasicPagesComponent }, // Legal notice page
+  { path: 'information', component: BasicPagesComponent }, // Information page
 
   // Rutas privadas - autenticadas
   { path: 'profile', component: ProfileComponent }, // Profile page (post-login)

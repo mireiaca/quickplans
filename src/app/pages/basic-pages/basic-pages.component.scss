@@ -1,0 +1,26 @@
+.card {
+    align-items: center;
+    background-color: #eafaf1; 
+    border: none;
+    box-shadow: #00796b75 0px 0px 5px;
+    border-radius: 12px;
+    flex-direction: column;
+    padding-inline: 60px;
+    padding-block: 30px;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+* {
+    strong {
+        color: #117C6F;
+    }
+} 

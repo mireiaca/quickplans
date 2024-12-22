@@ -22,7 +22,8 @@
       <p>{{ friend.Nombre }}</p>
     </div>
     <div *ngIf="userFriends.length === 0" class="card empty">
-      <p>Oh, oh... Parece que aún no tienes amigos</p>
+      <p *ngIf="csrfToken">Oh, oh... Parece que aún no tienes amigos</p>
+      <p *ngIf="!csrfToken">Oh, oh... Aún no has iniciado sesión</p>
     </div>
     </div>
   </div>
@@ -37,7 +38,8 @@
       </div>
       
       <div *ngIf="pendingPlans.length === 0" class="card empty">
-        <p>Oh, oh... No hay planes pendientes</p>
+        <p *ngIf="csrfToken">Oh, oh... No hay planes pendientes</p>
+        <p *ngIf="!csrfToken">Oh, oh... No has iniciado sesión</p>
       </div>
     </div>
   </div>

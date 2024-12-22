@@ -28,19 +28,21 @@ export class QuickplansComponent implements OnInit {
   }
 
   searchFilter(): void {
+    const currentDate = new Date();
     const searchElement = document.getElementById('search') as HTMLInputElement;
     const search = searchElement ? searchElement.value.toLowerCase() : '';
-    this.quickplansAnonimos = this.quickplansAnonimos.filter((quickplan: Quickplan) => {
-      return quickplan.Titulo.toLocaleLowerCase().includes(search);
-    });
+    this.quickplansAnonimos = this.quickplansAnonimos
+    .filter((quickplan: Quickplan) => quickplan.Titulo.toLocaleLowerCase().includes(search))
+    .filter((quickplan: Quickplan) => new Date(quickplan.Fecha_Incio) > currentDate);;
   }
 
   filterLocation(): void {
+    const currentDate = new Date();
     const searchElement = document.getElementById('location') as HTMLInputElement;
     const search = searchElement ? searchElement.value.toLowerCase() : '';
-    this.quickplansAnonimos = this.quickplansAnonimos.filter((quickplan: Quickplan) => {
-      return quickplan.field_location.toLocaleLowerCase().includes(search);
-    });
+    this.quickplansAnonimos = this.quickplansAnonimos
+      .filter((quickplan: Quickplan) => quickplan.field_location.toLocaleLowerCase().includes(search))
+      .filter((quickplan: Quickplan) => new Date(quickplan.Fecha_Incio) > currentDate);
   }
 
   verPlan(plan: string): void {
