@@ -24,3 +24,18 @@
         color: #117C6F;
     }
 } 
+
+.icono {
+    height: 40px;
+    width: 40px;
+    background-color: #117C6F;
+    color: white;
+    border-radius: 50%;
+    padding: 9px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+}

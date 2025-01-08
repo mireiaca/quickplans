@@ -3,12 +3,12 @@
       <img src="./../../../assets/images/login.jpg" alt="Calendario" class="calendar-image">
     </div>
     <div class="form-section">
-      <form (ngSubmit)="onRegister()">
+      <form (ngSubmit)="onRegister()" method="POST">
         <div class="input-group">
           <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Nombre de usuario" required>
         </div>
         <div class="input-group">
-          <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+            <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
         </div>
         <div class="input-group">
           <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Contraseña" required>

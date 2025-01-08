@@ -37,10 +37,12 @@
             </li>
             <li *ngIf="csrfToken" class="extends"><a href="#">Notificaciones</a>
                 <ul>
-                    <!-- <li *ngFor="let notification of notifications"><a href="#">{{notification}}</a></li> -->
-                    <li><a href="#">Notificacion 1  </a></li>
+                    <li *ngFor="let notification of notifications">
+                        <a href="#">{{notification.title}}</a>
+                    </li>
+                    <!-- <li><a href="#">Notificacion 1  </a></li>
                     <li><a href="#">Notificacion 2  </a></li>
-                    <li><a href="#">Notificacion 3  </a></li>
+                    <li><a href="#">Notificacion 3  </a></li> -->
                 </ul>
             </li>
         </ul>

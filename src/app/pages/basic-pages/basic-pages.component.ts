@@ -23,6 +23,10 @@ export class BasicPagesComponent {
     this.loadCurrentPage();
   }
 
+  navigateToChatBot() {
+    this.router.navigate(['/chat-bot']);
+  }
+
   loadCurrentPage(): void {
     switch (this.currentRoute) {
       case '/policy-cookies':
@@ -60,6 +64,26 @@ export class BasicPagesComponent {
         break;
       case '/information':
         this.basicPagesService.getBasicPageInfo('106').subscribe((page: BasicPage) => {
+          this.title = page.title;
+          this.content = page.content;
+          const contentContainer = document.getElementById("content-container");
+          if (contentContainer) {
+            contentContainer.innerHTML = this.content;
+          }
+        });
+        break;
+      case '/faq':
+        this.basicPagesService.getBasicPageInfo('107').subscribe((page: BasicPage) => {
+          this.title = page.title;
+          this.content = page.content;
+          const contentContainer = document.getElementById("content-container");
+          if (contentContainer) {
+            contentContainer.innerHTML = this.content;
+          }
+        });
+        break;
+      case '/form-contact':
+        this.basicPagesService.getBasicPageInfo('108').subscribe((page: BasicPage) => {
           this.title = page.title;
           this.content = page.content;
           const contentContainer = document.getElementById("content-container");

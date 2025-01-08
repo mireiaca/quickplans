@@ -1,17 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { NotificationsService } from '../../services/notifications/notifications.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  notifications: any[] = [];
+
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsService
   ) {}
+  ngOnInit(): void {
+    this.notificationsService.getNotifications().subscribe({ 
+      next: (response) => {
+        this.notifications = response;
+        console.log('Notificaciones:', this.notifications);
+      },
+      error: (err) => {
+        console.error('Error al obtener las notificaciones:', err);
+      }
+    });
+  }
 
   onLogout(): void {
     this.authService.logout().subscribe({

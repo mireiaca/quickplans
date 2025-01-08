@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, switchMap } from 'rxjs';
+import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { GroupService } from '../group/group.service';
+import  { Notification, NotificationsService } from '../notifications/notifications.service';
 
 export interface Quickplan {
   Titulo: string;
@@ -39,7 +40,8 @@ export class QuickplanService {
 
   constructor(
     private http: HttpClient,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private notificationService: NotificationsService
   ) { }
 
   // Obtener planes a los que está asociado el usuario
@@ -136,7 +138,29 @@ export class QuickplanService {
             'Content-Type': 'application/json',
             'X-CSRF-Token': localStorage.getItem('csrf_token') || '' 
           }
-        });
+        }).pipe(
+          switchMap(response => {
+            const notification: Notification = {
+              title: 'Te han invitado a un plan',
+              field_channel: 'Aviso',
+              field_read: false,
+              field_message: `El usuario ${localStorage.getItem('username')} te ha invitado a un plan`,
+              field_related: usuarios,
+              field_creator_user: localStorage.getItem('username') || '',
+              nid: ''
+            };
+            console.log('Notificación:', notification);
+            return this.notificationService.createNotification(notification).pipe(
+              map(notificationResponse => {
+                console.log('Notificación creada correctamente:', notificationResponse);
+                return response;
+              }),
+              catchError(notificationError => {
+                console.error('Error al crear la notificación:', notificationError);
+                return throwError(notificationError);
+              })
+            );
+          }));
       })
     );
   }
@@ -159,7 +183,30 @@ export class QuickplanService {
           usuariosAsociados = usuariosAsociados.filter(usuario => typeof usuario === 'string' && !usuario.includes(currentUsername));
           
           if(quickplanData.field_grupo_asociado[0]?.target_id && quickplanData.field_tipo_de_plan[0].target_id == '1') {
-            this.groupService.addUserToGroup(quickplanData.field_grupo_asociado[0].target_id, currentUsername).subscribe();
+            this.groupService.addUserToGroup(quickplanData.field_grupo_asociado[0].target_id, currentUsername).subscribe(
+              response => {
+                const notification: Notification = {
+                  title: 'Han aceptado su plan',
+                  field_channel: 'Aviso',
+                  field_read: false,
+                  field_message: `El usuario ${localStorage.getItem('username')} ha aceptado su plan`,
+                  field_related: [usuariosAgregados[0]],
+                  field_creator_user: localStorage.getItem('username') || '',
+                  nid: ''
+                };
+                console.log('Notificación:', notification);
+                return this.notificationService.createNotification(notification).pipe(
+                  map(notificationResponse => {
+                    console.log('Notificación creada correctamente:', notificationResponse);
+                    return response;
+                  }),
+                  catchError(notificationError => {
+                    console.error('Error al crear la notificación:', notificationError);
+                    return throwError(notificationError);
+                  })
+                );
+              },
+            )
           }
           /* this.groupService.addUserToGroup(quickplanData.field_grupo_asociado, currentUsername).subscribe(); */
         } else if(type == 'rechazar') {
@@ -182,7 +229,7 @@ export class QuickplanService {
             'Content-Type': 'application/json',
             'X-CSRF-Token': localStorage.getItem('csrf_token') || '' 
           }
-        });
+        })
       })
     );
   }

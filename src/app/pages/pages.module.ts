@@ -18,6 +18,7 @@ import { ComponentsModule } from '../components/components.module';
 import { QuickplansComponent } from './plan/quickplans/quickplans.component';
 import { QuickplanComponent } from './plan/quickplan/quickplan.component';
 import { BasicPagesComponent } from './basic-pages/basic-pages.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BasicPagesComponent } from './basic-pages/basic-pages.component';
     EditGroupComponent,
     QuickplansComponent,
     QuickplanComponent,
-    BasicPagesComponent
+    BasicPagesComponent,
+    ChatBotComponent
   ],
   exports: [
     AddQuickplanComponent,

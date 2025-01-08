@@ -1,19 +1,48 @@
 <div class="container">
     <!-- Menú lateral o superior -->
-    <aside class="sidebar">
+    <aside class="sidebar" [ngClass]="{'display-none': !isActive('')}">
       <nav class="menu">
         <ul>
-          <li class="active" *ngFor="let user of userFriends" 
-                (click)="setActiveChat()">
-                a
+          <li [ngClass]="{'active': isActive(user.Username)}" *ngFor="let user of userFriends" 
+                (click)="setActiveChat(isActive(user.Username) ? '' : user.Username)">
+                {{user.Nombre}}
           </li>
         </ul>
       </nav>
     </aside>
   
     <!-- Contenido principal -->
-    <main class="main-content">
+    <main class="main-content-empty" [ngClass]="{'display-none2': !isActive('')}">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFCElEQVR4nO1ca28bRRSdQiuKoN69a5UimqaUxycEKoJSBK0EEiBIKAjRNIkoSE1Tx/bOjGVVUZuZWe0v4Afwa4vupoHa6yS2O+u7O75HupKVrO3Zc+5rHl4hxtDKhwlk8muwchOc2gWremzqeA4KjuQmcobcibmR56/EmbwNme4y4Wo+pzNpNz6Qt5HL2cl36S9MvPIS7XGm7swkQuH5nGp6fjnQt6Yiv8j5JuW0Yz0LYNLuVDUBlWLvV1U1Gl+dLoDTWyyAqkgAuTmFANxqQlUCGLU7RQqqLPzYrOqxAJbWEVgAywIsdSoSXAMUC0DthcARQE8EcAqiJwMIjGuAZQHIvRA4AuiJAE5B9GQAgXENsCwAuRcCRwA9EcApiJ4MIDCuAZYFIPdC4AigJwI4BdGTAQTGNcCyAOReCBwB9EQApyB6MoDAuAZYFoDcC4EjgJ4I4BRETwYQGNcAywKQeyFwBNATAZyC6MkAAuMaYFkAci8EjgB6IoBTED0ZQGBcAywLQO6FwBFATwRwCqInAwiMa4CdhTC5HdnBN+D6HyVmeDnJVUso9Zp49uyM2Nh49Wqen8e/JblaiQ/0J3htbNUfx35eprssgD2FdKe3IjO4XpA9J6J8EEdOfTouRmT0byyAnUx8bNSdxOxdFn5xBp7o1ehAfYvRcTHvv8kC2HKaQZJEXUBdpGBhJvcSo7488UlWnc45yPUqXgdOr6FYiVM7+N7i/YevtyGTPxXXoJCdzjkWwJ5MfmzVn28d6EvHOuETvZpY9QMY3ZlZWKM7Saa/nzuq6D1TVWqJ0b+v/D18fdK9R09774FT97x9lx1sRFZeYwHsc8836lfxTzlFYMeDRbgy4TO5PnVXFaznO3V3Un5Grz/M5RWPwajdVj78YCkFiJ2+vzIspx3s1RfuCFj4l0sAuXcx7789fp/4QNVaPsKSnjDl1dDLx+8xMfIL6nG1M30jeAESzPtjfX7Lqvepx3VkF5z+MGwBzOjSQrFwZvXD2ozPyoel7oh6UODLjFwvOZeR6+TjGrPY6Z+DFKCdp++UJlk1GNckG5msUQ8GfJhT90re72uG6/TapceP38CVTV8RlVi5EZQAkRlcHyE/16u+PvvFJeVCBG/j7l0JQwCTdtv7OxdGii8urHn6/KqalsTK7xovQIJLCi79uLSkPM+q5oIFACsfiTw/W40AJu1O7HkXAPCYfqoVAK13RYREPqLYKGmIAEk2uClCIh9xuJPVDAHAqh9FSOQjii3Dxgggt0VI5CMiqx/M0+eLl8Q884TIpg9ESOQjDjfQpx//VEdHpsTM84RMd0RI5C+XADUkf64UZOS6DxEK8rNFpaCakt+4Iuz0lgiJ/PDb0JqT37yJWH+GiVgDyG/aUgQecxchkR/mYlyTyA9uObqB5CPwoGzdN2SK9FMMNjDyj4AHZb2Q9XyeME+ff+LxmSOESD4CN759eatvi23/qjhCiOTX+1hKOnosJXbyr/8vkHutp/3TT/Q2BElxMEvW52CWUzvt/f2R/WuB4YC/IEGb+ccFDUCr7kcTlwHtTN+gJj/K9GdimQFW36rl8fRlQpsgElom/Zz6vmuFyMpri/iJEp7KDqmh8d4dVdqiOr1W6nYYZUT54F08KOvN6526OzLJYkwHPKGGi2O4Qjk78fIRvve/tR2GmB95frYQI+vfxN0q3DJMzAuPKsDXTm/h//CagnRcUn4J/Au6yhHeafUgFgAAAABJRU5ErkJggg==" alt="external-Add-copyright-those-icons-fill-those-icons">    
+    </main>
 
+    <main class="main-content" [ngClass]="{'display-none': isActive('')}" [ngClass]="{'display-none2': isActive('')}">
+      <div class="chat-header">
+        <svg (click)="setActiveChat('')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <img src="https://quickplans-drupal-docker.ddev.site/sites/default/files/default_images/user.png" alt="User avatar" class="avatar">
+        <div class="user-info">
+          <h3>María Pérez</h3>
+        </div>
+      </div>
+  
+      <div class="chat-body">
+        <div class="message received">
+          <p>Holaaa, qué tal?</p>
+          <span class="timestamp">27/12/2024 10:30 AM</span>
+        </div>
+        <div class="message sent">
+          <p>Buenos diass María, a ver si quedamos!!</p>
+          <span class="timestamp">27/12/2024 10:35 AM</span>
+        </div>
+      </div>
+  
+      <div class="chat-footer">
+        <input type="text" placeholder="..." class="message-input">
+        <button class="send-button">&#10148;</button>
+      </div>
     </main>
   </div>
   

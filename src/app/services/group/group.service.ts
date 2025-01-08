@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from '../user/user.service';
-
+import { Notification, NotificationsService } from '../notifications/notifications.service';
 
 export interface Group {
   Titulo: string;
@@ -18,7 +18,10 @@ export interface Group {
 
 export class GroupService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationsService
+  ) { }
 
   // Método para obtener los grupos de usuario
   getUserGroups(): Observable<Group[]> {
@@ -95,8 +98,29 @@ export class GroupService {
           }
         });
       }),
-      switchMap(response => response) 
-    );
+      switchMap(response => response),
+      switchMap(response => {
+        const notification: Notification = {
+          title: 'Te han añadido a un grupo',
+          field_channel: 'Aviso',
+          field_read: false,
+          field_message: `El usuario ${localStorage.getItem('username')} te ha añadido a un grupo`,
+          field_related: [username],
+          field_creator_user: localStorage.getItem('username') || '',
+          nid: ''
+        };
+        console.log('Notificación:', notification);
+        return this.notificationService.createNotification(notification).pipe(
+          map(notificationResponse => {
+            console.log('Notificación creada correctamente:', notificationResponse);
+            return response;
+          }),
+          catchError(notificationError => {
+            console.error('Error al crear la notificación:', notificationError);
+            return throwError(notificationError);
+          })
+        );
+      }));
   }
   
   // Método para obtener información del grupo y luego eliminar un miembro
@@ -153,7 +177,29 @@ export class GroupService {
         'Content-Type': 'application/vnd.api+json',
         'X-CSRF-Token': localStorage.getItem('csrf_token') || ''
       }
-    });
+    }).pipe(
+        switchMap(response => {
+          const notification: Notification = {
+            title: 'Te han añadido a un grupo',
+            field_channel: 'Aviso',
+            field_read: false,
+            field_message: `El usuario ${localStorage.getItem('username')} te ha añadido a un grupo`,
+            field_related: usuarios,
+            field_creator_user: localStorage.getItem('username') || '',
+            nid: ''
+          };
+          console.log('Notificación:', notification);
+          return this.notificationService.createNotification(notification).pipe(
+            map(notificationResponse => {
+              console.log('Notificación creada correctamente:', notificationResponse);
+              return response;
+            }),
+            catchError(notificationError => {
+              console.error('Error al crear la notificación:', notificationError);
+              return throwError(notificationError);
+            })
+          );
+      }));
   }
 
   // Método para editar un grupo
@@ -180,7 +226,29 @@ export class GroupService {
         'Content-Type': 'application/json',
         'X-CSRF-Token': localStorage.getItem('csrf_token') || ''
       }
-    }); 
+    }).pipe(
+      switchMap(response => {
+        const notification: Notification = {
+          title: 'Te han añadido a un grupo',
+          field_channel: 'Aviso',
+          field_read: false,
+          field_message: `El usuario ${localStorage.getItem('username')} te ha añadido a un grupo`,
+          field_related: usuarios,
+          field_creator_user: localStorage.getItem('username') || '',
+          nid: ''
+        };
+        console.log('Notificación:', notification);
+        return this.notificationService.createNotification(notification).pipe(
+          map(notificationResponse => {
+            console.log('Notificación creada correctamente:', notificationResponse);
+            return response;
+          }),
+          catchError(notificationError => {
+            console.error('Error al crear la notificación:', notificationError);
+            return throwError(notificationError);
+          })
+        );
+      }));
     } else {
       const url = `${environment.apiBaseUrl}/node/${idGroup}?_format=json`;
       const groupData = {
@@ -196,7 +264,29 @@ export class GroupService {
           'Content-Type': 'application/json',
           'X-CSRF-Token': localStorage.getItem('csrf_token') || ''
         }
-      });
+      }).pipe(
+        switchMap(response => {
+          const notification: Notification = {
+            title: 'Te han añadido a un grupo',
+            field_channel: 'Aviso',
+            field_read: false,
+            field_message: `El usuario ${localStorage.getItem('username')} te ha añadido a un grupo`,
+            field_related: usuarios,
+            field_creator_user: localStorage.getItem('username') || '',
+            nid: ''
+          };
+          console.log('Notificación:', notification);
+          return this.notificationService.createNotification(notification).pipe(
+            map(notificationResponse => {
+              console.log('Notificación creada correctamente:', notificationResponse);
+              return response;
+            }),
+            catchError(notificationError => {
+              console.error('Error al crear la notificación:', notificationError);
+              return throwError(notificationError);
+            })
+          );
+        }));
     }
   }
 

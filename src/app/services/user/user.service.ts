@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoModalComponent } from '../../components/info-modal/info-modal.component';
 import { QuickplanService } from '../quickplans/quickplan.service';
+import { NotificationsService, Notification } from '../notifications/notifications.service';
 
 export interface User {
   field_nombre: string;
@@ -28,7 +29,12 @@ export class UserService {
     return this.getMyFriends();
   }
 
-  constructor(private http: HttpClient, private dialog: MatDialog, private quickplanService: QuickplanService) { }
+  constructor(
+    private http: HttpClient, 
+    private dialog: MatDialog,
+    private quickplanService: QuickplanService, 
+    private notificationService: NotificationsService
+  ) { }
 
   // editar perfil
   editProfile(
@@ -242,10 +248,24 @@ export class UserService {
     setTimeout(() => {
       if(correcto && correcto2) {
       this.messageDialog('Información', 'Amigo añadido correctamente');
+      const notification: Notification = {
+        title: 'Te han añadido como amigo',
+        field_channel: 'Aviso',
+        field_read: false,
+        field_message: `El usuario ${myUsername} te ha añadido como amigo`,
+        field_related: [friendUsername],
+        field_creator_user: myUsername || '',
+        nid: ''
+      };
+      console.log('Notificación:', notification);
+      this.notificationService.createNotification(notification).subscribe(
+        response => console.log('Notificación creada correctamente:', response),
+        error => console.error('Error al crear la notificación:', error)
+      );
       } else {
       this.messageDialog('Error', 'Error al añadir amigo');
       }
-    }, 4000);
+    }, 6000);
     
   }
 
